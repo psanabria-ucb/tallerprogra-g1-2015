@@ -1,14 +1,17 @@
 group 'bo.edu.ucbcba.group1'
 version '1.0-SNAPSHOT'
 
-apply plugin: 'java'
+apply plugin: 'application' //java te va crear como librearias si coloco application te crea completo
 
-sourceCompatibility = 1.7
+sourceCompatibility = 'bo.edu.ucbcba.Taller.Main' //utiliza el java por defecto si se coloca 1.8 utiliza el java solamente 1.8
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'org.apache.derby:derby:10.1.1.0'
+    compile 'org.eclipse.persistence:eclipselink:2.6.3'
+    compile 'com.intellij:forms_rt:7.0.3'
+    testCompile 'junit:junit:4.11'
 }
