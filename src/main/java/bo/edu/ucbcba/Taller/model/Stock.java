@@ -2,11 +2,12 @@ package bo.edu.ucbcba.Taller.model;
 
 /* Stock Entity */
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+//import javax.persistence.Entity;
+//import javax.persistence.Id;
+//import javax.persistence.Column;
+//import javax.persistence.GeneratedValue;
+//import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 @Entity //Esto es una tabla
 public class Stock {

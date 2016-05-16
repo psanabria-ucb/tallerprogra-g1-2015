@@ -1,8 +1,10 @@
 package bo.edu.ucbcba.Taller.view;
 
 import bo.edu.ucbcba.Taller.controller.StockController;
-import javax.swing.*;
 import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,17 +16,13 @@ public class RegisterStockForm extends JDialog {
     private JButton cancelButton;
     private JButton saveButton;
     private JTextField quantity;
-
-    StockController controller;
+    private StockController controller;
 
     public RegisterStockForm(JFrame parent) {
-        controller = new StockController();
-
-
-        // super(parent, "Registro de Productos", true);
+        super(parent, "Registrar Repuesto", true);
         setContentPane(rootPanel);
         pack();
-        setResizable(false);   //para que no se modifique la ventana
+        setResizable(false);
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -37,23 +35,28 @@ public class RegisterStockForm extends JDialog {
                 cancel();
             }
         });
+        controller = new StockController();
     }
-        private void saveUser() {
-            try {
-                controller.create(name.getText(),
-                        quantity.getText(),
-                        code.getText(),
-                        cost.getText());
-            } catch (ValidationException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
-            }
-
-            JOptionPane.showMessageDialog(this, "Movie created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-            cancel();
+    private void saveUser() {
+        try {
+            controller.create(name.getText(),
+                              quantity.getText(),
+                              cost.getText(),
+                              code.getText());
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
 
-        private void cancel() {
-            setVisible(false);
-            dispose();
-        }
+        JOptionPane.showMessageDialog(this, "Movie created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        cancel();
+    }
+
+    private void cancel() {
+        setVisible(false);
+        dispose();
+    }
 }
+
+
+
+
