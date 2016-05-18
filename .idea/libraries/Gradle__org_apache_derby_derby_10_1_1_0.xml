@@ -2,7 +2,6 @@
   <library name="Gradle: org.apache.derby:derby:10.1.1.0">
     <CLASSES>
       <root url="jar://C:/gradle-2.13-bin/caches/modules-2/files-2.1/org.apache.derby/derby/10.1.1.0/85fff38af9fbaecffaf2b65f11a1a0f40385a08b/derby-10.1.1.0.jar!/" />
-      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.1.1.0/85fff38af9fbaecffaf2b65f11a1a0f40385a08b/derby-10.1.1.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

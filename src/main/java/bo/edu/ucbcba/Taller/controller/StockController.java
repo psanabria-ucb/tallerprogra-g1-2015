@@ -2,35 +2,28 @@ package bo.edu.ucbcba.Taller.controller;
 
 import bo.edu.ucbcba.Taller.model.Stock;
 import bo.edu.ucbcba.Taller.dao.TallerEntityManager;
-//import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+import bo.edu.ucbcba.Taller.exceptions.ValidationException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.swing.*;
 import java.util.List;
 
 public class StockController {
 
-    public void create(String name,
-                       String cost,
-                       String code,
-                       String quantity) {
+    public void create(String name, String cost, String code, String quantity) {
 
         Stock stock = new Stock();
-        stock.setName(name);
-        stock.setCode(code);
 
-
-
-      //  if (cost >= 60)
-       //     throw new ValidationException("Minutes can't be greater than 59");
-       // stock.setCost(1000);
-
-
-        //if (quantity >= 60)
-         //   throw new ValidationException("Minutes can't be greater than 59");
-        //stock.setQuantity(100);
-
-
+        if (quantity.matches("[0-9]+") && cost.matches("[0-9]+") && name.matches("[a-z]+") && code.matches("[a-z]+")) {
+            stock.setQuantity(Integer.parseInt(quantity));
+            stock.setCost(Integer.parseInt(cost));
+            stock.setName(name);
+            stock.setCode(code);
+        }
+        else {
+            throw new ValidationException("El formulario no esta llenado correctamente");
+        }
 
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         entityManager.getTransaction().begin();

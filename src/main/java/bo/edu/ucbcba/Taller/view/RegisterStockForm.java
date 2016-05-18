@@ -21,9 +21,11 @@ public class RegisterStockForm extends JDialog {
     private JTextField quantity;
     private StockController controller;
 
+
     private JTextField searchText;
     private JButton searchButton;
     private JTable stockTable;
+    private JButton deletebutton;
 
     public RegisterStockForm(JFrame parent) {
         super(parent, "Registrar Repuesto", true);
@@ -52,17 +54,31 @@ public class RegisterStockForm extends JDialog {
                 populateTable();
             }
         });
+        deletebutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                deletestock();
+            }
+        });
     }
+
+    public void deletestock() {
+        DefaultTableModel tm = (DefaultTableModel) stockTable.getModel();
+        int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
+        controller.delete(id);
+        populateTable();
+    }
+
     private void saveUser() {
         try {
             controller.create(name.getText(),
-                              quantity.getText(),
                               cost.getText(),
-                              code.getText());
+                              code.getText(),
+                              quantity.getText());
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(this, "Movie created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+      //  JOptionPane.showMessageDialog(this, "Stock created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
     }
 
     private void cancel() {
@@ -73,6 +89,7 @@ public class RegisterStockForm extends JDialog {
     private void populateTable() {
         java.util.List<Stock> movies = controller.searchStock(searchText.getText());
         DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("Id");
         model.addColumn("Name");
         model.addColumn("Code");
         model.addColumn("Quantity");
@@ -82,10 +99,11 @@ public class RegisterStockForm extends JDialog {
         for (Stock m : movies) {
             Object[] row = new Object[5];
 
-            row[0] = m.getName();
-            row[1] = m.getCost();
-            row[2] = m.getCode();
-            row[3] = m.getQuantity();
+            row[0] = m.getId();
+            row[1] = m.getName();
+            row[2] = m.getCost();
+            row[3] = m.getCode();
+            row[4] = m.getQuantity();
             model.addRow(row);
         }
     }
