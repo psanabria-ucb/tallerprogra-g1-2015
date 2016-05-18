@@ -19,7 +19,7 @@ public class MainForm extends JFrame {
     private JPanel rootPanel;
 
     public MainForm() {
-        super("TALLER DE MATENIMIENTO");
+        super("TALLER DE MANTENIMIENTO");
         setContentPane(rootPanel);
         setSize(600, 400);
 
@@ -43,6 +43,13 @@ public class MainForm extends JFrame {
                 populateTable();
             }
         });
+
+        userButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                launchUser();
+            }
+        });
     }
 
     private void launchRegister() {
@@ -59,5 +66,8 @@ public class MainForm extends JFrame {
         f.setVisible(true);
     }
 
-
+    private void launchUser() {
+   // RegisterUserForm form = new RegisterUserForm(this);
+     //   form.setVisible(true);
+    }
 }

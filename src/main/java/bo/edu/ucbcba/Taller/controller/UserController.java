@@ -17,18 +17,14 @@ public class UserController {
                        String password) {
 
         User user = new User();
-        user.setName(name);
-        user.setUsername(username);
-        user.setPassword(password);
 
-        //  if (cost >= 60)
-        //     throw new ValidationException("Minutes can't be greater than 59");
-        // stock.setCost(1000);
-
-
-        //if (quantity >= 60)
-        //   throw new ValidationException("Minutes can't be greater than 59");
-        //stock.setQuantity(100);
+        if (name.matches("[a-z]+") && username.matches("[a-z]+")) {
+            user.setName(name);
+            user.setUsername(username);
+        }
+        else {
+            throw new ValidationException("El formulario no esta llenado correctamente");
+        }
 
 
         EntityManager entityManager = TallerEntityManager.createEntityManager();
@@ -38,13 +34,21 @@ public class UserController {
         entityManager.close();
     }
 
-    public List<User> searchStock(String q) {
+    public List<User> search(String q) {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         TypedQuery<User> query = entityManager.createQuery("select m from User m WHERE lower(m.name) like :name", User.class);
         query.setParameter("name", "%" + q.toLowerCase() + "%");
         List<User> response = query.getResultList();
         entityManager.close();
         return response;
+    }
+    public void delete(int id)
+    {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.remove(entityManager.find(User.class,id));
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
 }

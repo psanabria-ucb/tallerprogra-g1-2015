@@ -28,6 +28,14 @@ public class Stock {
     @Column(length = 100)
     private int quantity;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
