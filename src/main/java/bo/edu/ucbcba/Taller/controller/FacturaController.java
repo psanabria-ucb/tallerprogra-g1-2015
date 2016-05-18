@@ -17,11 +17,12 @@ public class FacturaController {
     public void create(String ci,String nombre,String date, String cost,String des)
     {
         Factura maintenance = new Factura();
-        if(ci.matches("[0-9]+") && nombre.matches("[a-z]+") && date.matches("[a-z]+") && cost.matches("[0-9]+") && des.matches("[a-z]+"))
+        if(ci.matches("[0-9]+") && nombre.matches("[a-z]+")  && cost.matches("[0-9]+") && des.matches("[a-z]+"))
         {
+
             maintenance.setCi(Integer.parseInt(ci));
             maintenance.setNombre(nombre);
-            maintenance.setDate(date);
+          //  maintenance.setDate(date);
             maintenance.setCosto(Integer.parseInt(cost));
             maintenance.setDescrip(des);
         }

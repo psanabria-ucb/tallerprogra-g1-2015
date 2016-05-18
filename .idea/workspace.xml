@@ -2,58 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96f8907d-f23f-4325-8108-890b31f63c5e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/group1_main.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules/group1_test.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/db.lck" afterPath="$PROJECT_DIR$/Taller/db.lck" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/log/log.ctrl" afterPath="$PROJECT_DIR$/Taller/log/log.ctrl" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/log/log1.dat" afterPath="$PROJECT_DIR$/Taller/log/log1.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/log/logmirror.ctrl" afterPath="$PROJECT_DIR$/Taller/log/logmirror.ctrl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c101.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c101.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c111.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c111.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c121.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c121.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c130.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c130.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c141.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c141.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c20.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c20.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c31.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c31.dat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c320.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c320.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c340.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c340.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c351.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c351.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c41.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c41.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c51.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c51.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c60.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c60.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c71.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c71.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c81.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c81.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c90.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c90.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/ca1.dat" afterPath="$PROJECT_DIR$/Taller/seg0/ca1.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/cb1.dat" afterPath="$PROJECT_DIR$/Taller/seg0/cb1.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/cf0.dat" afterPath="$PROJECT_DIR$/Taller/seg0/cf0.dat" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/MainForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/MainForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterMaintenance.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterMaintenance.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterStockForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterStockForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterUserForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterUserForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/UserForm.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/UserForm.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/AbstractLayout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/DimensionInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/GridConstraints.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/GridLayoutManager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/HorizontalInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/LayoutState.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/LayoutState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/Spacer.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/Spacer.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/SupportCode.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/SupportCode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/Util.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/Util.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="$PROJECT_DIR$/build/classes/main/com/intellij/uiDesigner/core/VerticalInfo.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/group1.iml" afterPath="$PROJECT_DIR$/.idea/modules/group1.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c360.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c360.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c371.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c371.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/controller/FacturaController.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/controller/FacturaController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/model/Factura.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/model/Factura.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterFact.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterFact.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/build/resources/main/META-INF/persistence.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" />
     </list>
     <ignored path="group1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,7 +67,7 @@
       <file leaf-file-name="RegisterMaintenance.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterMaintenance.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
+            <state relative-caret-position="-2014">
               <caret line="16" column="48" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -118,11 +81,12 @@
       <file leaf-file-name="Factura.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="799">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state relative-caret-position="765">
+              <caret line="55" column="3" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
               <folding>
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#535#536#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -131,8 +95,8 @@
       <file leaf-file-name="FacturaController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
+            <state relative-caret-position="459">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,15 +104,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterFact.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="RegisterFact.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1649">
-              <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
+              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2222#2223#0" expanded="true" />
-                <element signature="e#2280#2281#0" expanded="true" />
+                <element signature="e#2249#2250#0" expanded="true" />
+                <element signature="e#2307#2308#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -164,7 +128,7 @@
       <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="833">
+            <state relative-caret-position="425">
               <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -173,7 +137,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RegisterFact.form" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RegisterFact.form" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -599,10 +563,10 @@
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/MaintenanceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterMaintenance.java" />
         <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form" />
       </list>
     </option>
@@ -1434,12 +1398,12 @@
       <workItem from="1463522439511" duration="862000" />
       <workItem from="1463523363560" duration="763000" />
       <workItem from="1463572811401" duration="5679000" />
-      <workItem from="1463590141699" duration="2084000" />
+      <workItem from="1463590141699" duration="4913000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74232000" />
+    <option name="totallyTimeSpent" value="77061000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -1798,17 +1762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding>
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#535#536#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Maintenance.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -1843,7 +1796,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterMaintenance.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
+        <state relative-caret-position="-2014">
           <caret line="16" column="48" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1860,30 +1813,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="833">
+        <state relative-caret-position="425">
           <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2222#2223#0" expanded="true" />
-            <element signature="e#2280#2281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="19" column="67" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1893,6 +1824,40 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form">
       <provider selected="true" editor-type-id="ui-designer">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="55" column="3" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2249#2250#0" expanded="true" />
+            <element signature="e#2307#2308#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

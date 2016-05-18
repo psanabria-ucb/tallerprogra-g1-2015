@@ -9,6 +9,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
 import java.util.List;
 
 
@@ -98,7 +99,7 @@ public class RegisterFact extends JDialog{
             row[0] = m.getId();
             row[1] = m.getCi();
             row[2] = m.getNombre();
-            row[3] = m.getDate();
+            row[3] = "2016,5,18";//m.getDate();
             row[4] = m.getCosto();
             row[5] = m.getDescrip();
             model.addRow(row);
@@ -111,6 +112,13 @@ public class RegisterFact extends JDialog{
         marcaField.setText("");
         costoField.setText("");
         descripArea.setText("");
+       Calendar ahoraCal = Calendar.getInstance();
+        System.out.println(ahoraCal.getClass());
+        ahoraCal.set(2016,5,18);
+        System.out.println(ahoraCal.getTime());
+        //ahoraCal.set(2004,1,7,7,0,0);
+
+        //fecha.(a);
     }
 
     public void addMan(){

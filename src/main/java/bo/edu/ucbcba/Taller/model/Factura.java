@@ -4,6 +4,8 @@ package bo.edu.ucbcba.Taller.model;
  * Created by Rebeca on 18/05/2016.
  */
 import javax.persistence.*;
+import java.util.Calendar;
+
 @Entity
 public class Factura {
     @Id
@@ -50,7 +52,12 @@ public class Factura {
         this.nombre = nombre;
     }
 
+
     public String getDate() {
+        /*Calendar ahoraCal = Calendar.getInstance();
+        System.out.println(ahoraCal.getClass());
+        ahoraCal.set(2016, 5, 18);
+        return date="2016,5,18";*/
         return date;
     }
 
