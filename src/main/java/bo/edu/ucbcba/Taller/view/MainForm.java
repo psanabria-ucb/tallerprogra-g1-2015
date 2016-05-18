@@ -23,6 +23,13 @@ public class MainForm extends JFrame {
         setContentPane(rootPanel);
         setSize(600, 400);
 
+        facturacionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Register();
+            }
+        });
+
         stockButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -45,6 +52,10 @@ public class MainForm extends JFrame {
 
     private void populateTable() {
         RegisterMaintenance f = new RegisterMaintenance(this);
+        f.setVisible(true);
+    }
+    private void Register() {
+        RegisterFact f = new RegisterFact(this);
         f.setVisible(true);
     }
 
