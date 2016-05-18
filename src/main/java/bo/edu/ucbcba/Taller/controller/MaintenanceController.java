@@ -17,7 +17,7 @@ public class MaintenanceController {
     public void create(String ci,String pla,String mar, String cost,String des)
     {
         Maintenance maintenance = new Maintenance();
-       if(ci.matches("[0-9]+") && pla.matches("[a-z]+") && mar.matches("[a-z]+") && cost.matches("[0-9]+") && des.matches("[a-z]+"))
+       if(ci.matches("[0-9]+") && pla.matches("[a-z0-9]+") && mar.matches("[a-z]+") && cost.matches("[0-9]+") && des.matches("[a-z]+"))
        {
             maintenance.setCi(Integer.parseInt(ci));
             maintenance.setPlaca(pla);
