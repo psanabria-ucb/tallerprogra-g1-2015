@@ -44,11 +44,11 @@ public class MaintenanceController {
         return response;
     }
 
-    public void delete(int ci)
+    public void delete(int id)
     {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(Maintenance.class,ci));
+        entityManager.remove(entityManager.find(Maintenance.class,id));
         entityManager.getTransaction().commit();
         entityManager.close();
     }

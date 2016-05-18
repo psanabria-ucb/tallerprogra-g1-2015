@@ -19,7 +19,7 @@ public class MainForm extends JFrame {
     private JPanel rootPanel;
 
     public MainForm() {
-        super("Movies");
+        super("TALLER DE MATENIMIENTO");
         setContentPane(rootPanel);
         setSize(600, 400);
 

@@ -73,7 +73,7 @@ public class RegisterMaintenance extends JDialog {
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                populateSearchCITableMan();
             }
         });
     }
@@ -82,6 +82,7 @@ public class RegisterMaintenance extends JDialog {
     {
         List<Maintenance> man = maintenanceController.show();
         DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("NUM");
         model.addColumn("CI");
         model.addColumn("PLACA");
         model.addColumn("MARCA");
@@ -91,12 +92,13 @@ public class RegisterMaintenance extends JDialog {
 
         for(Maintenance m : man)
         {
-            Object[] row = new Object[5];
-            row[0] = m.getCi();
-            row[1] = m.getPlaca();
-            row[2] = m.getMarca();
-            row[3] = m.getCosto();
-            row[4] = m.getDescrip();
+            Object[] row = new Object[6];
+            row[0] = m.getId();
+            row[1] = m.getCi();
+            row[2] = m.getPlaca();
+            row[3] = m.getMarca();
+            row[4] = m.getCosto();
+            row[5] = m.getDescrip();
             model.addRow(row);
         }
     }
@@ -127,12 +129,13 @@ public class RegisterMaintenance extends JDialog {
 
     public  void deleteMan(){
         DefaultTableModel tm = (DefaultTableModel) tablemante.getModel();
-        int ci = (Integer) tm.getValueAt(tablemante.getSelectedRow(),0);
-        maintenanceController.delete(ci);
+        int id = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
+        maintenanceController.delete(id);
         populateTableMan();
+
     }
 
-    private void populateSearchTableMan(){
+    private void populateSearchCITableMan(){
         List<Maintenance> maintenances = maintenanceController.show();
         try{
             maintenances = maintenanceController.searhCI(searchtextField.getText());
