@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="96f8907d-f23f-4325-8108-890b31f63c5e" name="Default" comment="" />
+=======
+    <list default="true" id="96f8907d-f23f-4325-8108-890b31f63c5e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/db.lck" afterPath="$PROJECT_DIR$/Taller/db.lck" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/log/log.ctrl" afterPath="$PROJECT_DIR$/Taller/log/log.ctrl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/log/log1.dat" afterPath="$PROJECT_DIR$/Taller/log/log1.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/log/logmirror.ctrl" afterPath="$PROJECT_DIR$/Taller/log/logmirror.ctrl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c320.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c320.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c360.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c360.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Taller/seg0/c371.dat" afterPath="$PROJECT_DIR$/Taller/seg0/c371.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/controller/FacturaController.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/controller/FacturaController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/model/Factura.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/model/Factura.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterFact.class" afterPath="$PROJECT_DIR$/build/classes/main/bo/edu/ucbcba/Taller/view/RegisterFact.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/derby.log" afterPath="$PROJECT_DIR$/derby.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" afterPath="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" />
+    </list>
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
     <ignored path="group1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -51,8 +71,13 @@
       <file leaf-file-name="StockController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/StockController.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="170">
               <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+=======
+            <state relative-caret-position="-2014">
+              <caret line="16" column="48" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="48" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,10 +88,19 @@
       <file leaf-file-name="RegisterStockForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterStockForm.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="199">
               <caret line="76" column="49" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
+=======
+            <state relative-caret-position="765">
+              <caret line="55" column="3" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#538#539#0" expanded="true" />
+                <element signature="e#563#564#0" expanded="true" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
               </folding>
             </state>
           </provider>
@@ -75,8 +109,13 @@
       <file leaf-file-name="ControllerException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/exceptions/ControllerException.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="136">
               <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+=======
+            <state relative-caret-position="459">
+              <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
               <folding>
                 <element signature="e#194#195#0" expanded="true" />
                 <element signature="e#224#225#0" expanded="true" />
@@ -85,6 +124,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="ValidationException.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/exceptions/ValidationException.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -92,6 +132,17 @@
               <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
               <folding>
                 <element signature="e#247#248#0" expanded="true" />
+=======
+      <file leaf-file-name="RegisterFact.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1649">
+              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2249#2250#0" expanded="true" />
+                <element signature="e#2307#2308#0" expanded="true" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
               </folding>
             </state>
           </provider>
@@ -110,8 +161,13 @@
       <file leaf-file-name="RegisterUserForm.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterUserForm.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="79">
               <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+=======
+            <state relative-caret-position="425">
+              <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1823#1824#0" expanded="true" />
@@ -121,8 +177,27 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java">
+=======
+      <file leaf-file-name="RegisterFact.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RegisterMaintenance.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterMaintenance.form">
+          <provider selected="true" editor-type-id="ui-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maintenance.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Maintenance.java">
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
               <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
@@ -550,6 +625,7 @@
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/StockForm.form" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/MaintenanceController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterMaintenance.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Stock.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterStockForm.form" />
@@ -559,6 +635,14 @@
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterUserForm.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/FacturaController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java" />
+        <option value="$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
       </list>
     </option>
   </component>
@@ -1617,12 +1701,20 @@
       <workItem from="1463522439511" duration="862000" />
       <workItem from="1463523363560" duration="763000" />
       <workItem from="1463572811401" duration="5679000" />
+<<<<<<< HEAD
       <workItem from="1463590046595" duration="5253000" />
+=======
+      <workItem from="1463590141699" duration="4913000" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="77401000" />
+=======
+    <option name="totallyTimeSpent" value="77061000" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -2003,6 +2095,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/exceptions/ControllerException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -2015,6 +2108,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/exceptions/ValidationException.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Maintenance.java">
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="48" selection-start-line="6" selection-start-column="48" selection-end-line="6" selection-end-column="48" />
@@ -2054,8 +2150,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/StockController.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="170">
           <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+=======
+        <state relative-caret-position="-2014">
+          <caret line="16" column="48" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="48" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2072,8 +2173,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterUserForm.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="79">
           <caret line="70" column="51" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+=======
+        <state relative-caret-position="425">
+          <caret line="55" column="5" selection-start-line="55" selection-start-column="5" selection-end-line="55" selection-end-column="5" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1823#1824#0" expanded="true" />
@@ -2082,20 +2188,41 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="44" column="30" selection-start-line="44" selection-start-column="30" selection-end-line="44" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.form">
+      <provider selected="true" editor-type-id="ui-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/model/Factura.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="55" column="3" selection-start-line="55" selection-start-column="3" selection-end-line="55" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#538#539#0" expanded="true" />
+            <element signature="e#563#564#0" expanded="true" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="440">
           <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+=======
+        <state relative-caret-position="459">
+          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#774#775#0" expanded="true" />
@@ -2110,6 +2237,21 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/bo/edu/ucbcba/Taller/view/RegisterFact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2249#2250#0" expanded="true" />
+            <element signature="e#2307#2308#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> f7f90979b6e451f336b7f46004697e6990a3aec6
   </component>
   <component name="masterDetails">
     <states>
