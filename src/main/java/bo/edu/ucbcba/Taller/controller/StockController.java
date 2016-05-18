@@ -19,6 +19,8 @@ public class StockController {
         stock.setName(name);
         stock.setCode(code);
 
+
+
       //  if (cost >= 60)
        //     throw new ValidationException("Minutes can't be greater than 59");
        // stock.setCost(1000);

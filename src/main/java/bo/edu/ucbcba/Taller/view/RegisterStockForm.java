@@ -27,6 +27,7 @@ public class RegisterStockForm extends JDialog {
             @Override
             public void actionPerformed(ActionEvent e) {
                 saveUser();
+
             }
         });
         cancelButton.addActionListener(new ActionListener() {
