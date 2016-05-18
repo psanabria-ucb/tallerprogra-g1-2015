@@ -2,7 +2,7 @@ package bo.edu.ucbcba.Taller.controller;
 
 import bo.edu.ucbcba.Taller.model.Stock;
 import bo.edu.ucbcba.Taller.dao.TallerEntityManager;
-import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+//import bo.edu.ucbcba.Taller.exceptions.ValidationException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
@@ -31,6 +31,7 @@ public class StockController {
         //stock.setQuantity(100);
 
 
+
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(stock);
@@ -45,6 +46,15 @@ public class StockController {
         List<Stock> response = query.getResultList();
         entityManager.close();
         return response;
+    }
+
+    public void delete(int ci)
+    {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        entityManager.getTransaction().begin();
+        entityManager.remove(entityManager.find(Stock.class,ci));
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 
 }

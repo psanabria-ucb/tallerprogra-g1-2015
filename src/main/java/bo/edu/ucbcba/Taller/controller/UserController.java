@@ -40,7 +40,7 @@ public class UserController {
 
     public List<User> searchStock(String q) {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
-        TypedQuery<User> query = entityManager.createQuery("select m from Stock m WHERE lower(m.name) like :name", User.class);
+        TypedQuery<User> query = entityManager.createQuery("select m from User m WHERE lower(m.name) like :name", User.class);
         query.setParameter("name", "%" + q.toLowerCase() + "%");
         List<User> response = query.getResultList();
         entityManager.close();

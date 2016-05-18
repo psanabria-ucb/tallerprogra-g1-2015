@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by Osmar on 17/05/2016.
  */
-public class RegisterMaintenance extends JFrame {
+public class RegisterMaintenance extends JDialog {
     private JTextField ciField;
     private JTextField placaField;
     private JTextField marcaField;
@@ -31,8 +31,8 @@ public class RegisterMaintenance extends JFrame {
     private JButton cancelButton;
     private MaintenanceController maintenanceController;
 
-    public RegisterMaintenance(){
-        super("MANTENIMIENTO");
+    public RegisterMaintenance(JFrame  parent){
+        super(parent, "Registrar Mantenimiento", true);
 
         setContentPane(rootPanel);
         setSize(500,400);

@@ -1,7 +1,7 @@
 package bo.edu.ucbcba.Taller;
 
-import bo.edu.ucbcba.Taller.view.RegisterMaintenance;
-import bo.edu.ucbcba.Taller.view.StockForm;
+import bo.edu.ucbcba.Taller.view.MainForm;
+
 
 import javax.swing.*;
 
@@ -19,7 +19,7 @@ public class Main {
         */
 
 
-        RegisterMaintenance man = new RegisterMaintenance();
+        MainForm man = new MainForm();
         man.setVisible(true);
         man.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
