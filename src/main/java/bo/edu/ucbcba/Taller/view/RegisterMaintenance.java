@@ -41,6 +41,7 @@ public class RegisterMaintenance extends JDialog {
         setSize(500, 400);
         maintenanceController = new MaintenanceController();
         pack();
+        populateTableMan();
         setResizable(false);
 
         showButton.addActionListener(new ActionListener() {
@@ -133,6 +134,23 @@ public class RegisterMaintenance extends JDialog {
         maintenanceController.delete(id);
         populateTableMan();
 
+    }
+
+    public  void editMan()
+    {
+        DefaultTableModel tm = (DefaultTableModel) tablemante.getModel();
+        //String id =(String) tm.getValueAt(tablemante.getSelectedRow(), 0);
+        //ciField.setText(id);
+        String placa =(String) tm.getValueAt(tablemante.getSelectedRow(), 1);
+        placaField.setText(placa);
+        String marca = (String) tm.getValueAt(tablemante.getSelectedRow(), 2);
+        marcaField.setText(marca);
+        String costo = (String) tm.getValueAt(tablemante.getSelectedRow(), 3);
+        costoField.setText(costo);
+        String descripcion = (String) tm.getValueAt(tablemante.getSelectedRow(), 4);
+        descripArea.setText(descripcion);
+        //maintenanceController.delete(id);
+        populateTableMan();
     }
 
     private void populateSearchCITableMan() {
