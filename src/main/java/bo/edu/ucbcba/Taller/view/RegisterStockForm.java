@@ -32,7 +32,7 @@ public class RegisterStockForm extends JDialog {
     private JRadioButton codeRadioButton;
 
     public RegisterStockForm(JFrame parent) {
-        super(parent, "Registrar Repuesto", true);
+        super(parent, "Repuestos", true);
         setContentPane(rootPanel);
         pack();
         setResizable(false);
@@ -109,9 +109,9 @@ public class RegisterStockForm extends JDialog {
         }
 
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("N°");
+        model.addColumn("N");
         model.addColumn("Nombre");
-        model.addColumn("Código");
+        model.addColumn("Codigo");
         model.addColumn("Cantidad");
         model.addColumn("Costo");
         stockTable.setModel(model);
