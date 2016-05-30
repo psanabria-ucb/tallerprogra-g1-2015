@@ -17,7 +17,6 @@ public class StockController {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
 
-        List<Stock> stocks = getAllStock();
         Stock stock = new Stock();
 
         if (name.isEmpty() || cost.isEmpty() || code.isEmpty() || quantity.isEmpty())
@@ -34,18 +33,20 @@ public class StockController {
         else
             throw new ValidationException("En el campo costo solamente se permite numeros y decimales");
 
-        for (Stock s : stocks) {
-            if (!s.equals(code))
-                stock.setCode(code);
-            else
-                throw new ValidationException("Ya se encuentra registrado el dato código");
+        if (code.matches("[a-zA-Z]{1,1000}")){
+                EntityManager em = TallerEntityManager.createEntityManager();
+                TypedQuery<Stock> query = em.createQuery("select c from Stock c WHERE c.code = :a", Stock.class);
+                query.setParameter("a", code);
+                List<Stock> response = query.getResultList();
+                em.close();
+                if (response.isEmpty())
+                    stock.setCode(code);
+                else
+                    throw new ValidationException("El código ya existe");
         }
-
-
-        //if (code.matches("[a-zA-Z]{1,10000}"))
-          //  stock.setCode(code);
-        //else
-            //throw new ValidationException("En el campo código solamente se permite letras");
+        else {
+            throw new ValidationException("En el campo código solamente se permite letras");
+        }
 
         if (quantity.matches("[0-9]{1,10000}"))
             stock.setQuantity(Integer.parseInt(quantity));

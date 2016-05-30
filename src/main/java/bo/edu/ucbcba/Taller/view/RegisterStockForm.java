@@ -83,9 +83,9 @@ public class RegisterStockForm extends JDialog {
     private void saveUser() {
         try {
             controller.create(name.getText(),
-                    cost.getText(),
-                    code.getText(),
-                    quantity.getText());
+                                cost.getText(),
+                                code.getText(),
+                                quantity.getText());
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
