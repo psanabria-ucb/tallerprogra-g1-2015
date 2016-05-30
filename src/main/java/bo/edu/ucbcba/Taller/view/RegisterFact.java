@@ -83,8 +83,6 @@ public class RegisterFact extends JDialog {
         });
 
 
-
-
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -97,11 +95,11 @@ public class RegisterFact extends JDialog {
             @Override
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
-                Integer ci=(Integer) tablemante.getValueAt(tablemante.getSelectedRow(),1);
-                String nombre=(String) tablemante.getValueAt(tablemante.getSelectedRow(),2);
-                String date=(String) tablemante.getValueAt(tablemante.getSelectedRow(),3);
-                Integer costo=(Integer) tablemante.getValueAt(tablemante.getSelectedRow(),4);
-                String des=(String) tablemante.getValueAt(tablemante.getSelectedRow(),5);
+                Integer ci = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 1);
+                String nombre = (String) tablemante.getValueAt(tablemante.getSelectedRow(), 2);
+                String date = (String) tablemante.getValueAt(tablemante.getSelectedRow(), 3);
+                Integer costo = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 4);
+                String des = (String) tablemante.getValueAt(tablemante.getSelectedRow(), 5);
 
                 ciField.setText(Integer.toString(ci));
                 placaField.setText(nombre);
@@ -114,7 +112,6 @@ public class RegisterFact extends JDialog {
 
 
         });
-
 
 
     }
@@ -182,9 +179,9 @@ public class RegisterFact extends JDialog {
 
     private void populateActualizar() {
 
-        Integer cod=(Integer) tablemante.getValueAt(tablemante.getSelectedRow(),0);
+        Integer cod = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 0);
         maintenanceController.delete(cod);
-        Boolean entro=true;
+        Boolean entro = true;
 
         try {
 
@@ -196,11 +193,11 @@ public class RegisterFact extends JDialog {
 
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
-            entro=false;
+            entro = false;
 
 
         }
-        if(entro){
+        if (entro) {
             JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
 
             clearMant();
@@ -253,7 +250,7 @@ public class RegisterFact extends JDialog {
         final JPanel panel1 = new JPanel();
         panel1.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         rootPanel = new JPanel();
-        rootPanel.setLayout(new GridLayoutManager(12, 3, new Insets(0, 0, 0, 0), -1, -1));
+        rootPanel.setLayout(new GridLayoutManager(12, 3, new Insets(30, 40, 30, 40), -1, -1));
         panel1.add(rootPanel, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
         final JLabel label1 = new JLabel();
         label1.setFont(new Font(label1.getFont().getName(), Font.BOLD, 16));
@@ -316,5 +313,8 @@ public class RegisterFact extends JDialog {
         label8.setFont(new Font("Batang", Font.BOLD, 18));
         label8.setText("FACTURA");
         rootPanel.add(label8, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        actualizarButton = new JButton();
+        actualizarButton.setText("Actualizar");
+        rootPanel.add(actualizarButton, new GridConstraints(7, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 }

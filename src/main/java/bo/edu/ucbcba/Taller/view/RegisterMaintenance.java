@@ -47,7 +47,6 @@ public class RegisterMaintenance extends JDialog {
         setResizable(false);
 
 
-
         editaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -89,11 +88,11 @@ public class RegisterMaintenance extends JDialog {
             public void mouseClicked(MouseEvent e) {
                 super.mouseClicked(e);
 
-                Integer ci = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(),1);
-                String placa = (String) tablemante.getValueAt(tablemante.getSelectedRow(),2);
-                String marca = (String) tablemante.getValueAt(tablemante.getSelectedRow(),3);
-                int costo = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(),4);
-                String descrip = (String) tablemante.getValueAt(tablemante.getSelectedRow(),5);
+                Integer ci = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 1);
+                String placa = (String) tablemante.getValueAt(tablemante.getSelectedRow(), 2);
+                String marca = (String) tablemante.getValueAt(tablemante.getSelectedRow(), 3);
+                int costo = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 4);
+                String descrip = (String) tablemante.getValueAt(tablemante.getSelectedRow(), 5);
 
                 ciField.setText(Integer.toString(ci));
                 placaField.setText(placa);
@@ -200,30 +199,22 @@ public class RegisterMaintenance extends JDialog {
         }
     }
 
-    private  void UpdateTabla(){
+    private void UpdateTabla() {
         DefaultTableModel tm = (DefaultTableModel) tablemante.getModel();
         int cod = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
         maintenanceController.delete(cod);
         Boolean entro = true;
-        try{
+        try {
             maintenanceController.create(ciField.getText(), placaField.getText(), marcaField.getText(), costoField.getText(), descripArea.getText());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(this, "ERROR AL ELIMINAR");
+            entro = false;
         }
-        catch (Exception ex){
-            JOptionPane.showMessageDialog(this,"ERROR AL ELIMINAR");
-            entro=false;
-        }
-        if(entro){
-            JOptionPane.showMessageDialog(this,"LA ACTUALIZACION FUE EXITOSA");
+        if (entro) {
+            JOptionPane.showMessageDialog(this, "LA ACTUALIZACION FUE EXITOSA");
         }
         populateTableMan();
     }
-
-
-
-
-
-
-
 
 
     {
@@ -268,7 +259,7 @@ public class RegisterMaintenance extends JDialog {
         costoField = new JTextField();
         rootPanel.add(costoField, new GridConstraints(5, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         descripArea = new JTextArea();
-        rootPanel.add(descripArea, new GridConstraints(6, 3, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(30, 30), null, 0, false));
+        rootPanel.add(descripArea, new GridConstraints(6, 3, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         tablemante = new JTable();
         rootPanel.add(tablemante, new GridConstraints(13, 2, 4, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(200, 150), null, 0, false));
         final JLabel label5 = new JLabel();
@@ -279,9 +270,6 @@ public class RegisterMaintenance extends JDialog {
         label6.setFont(new Font(label6.getFont().getName(), Font.BOLD, 16));
         label6.setText("CI  :");
         rootPanel.add(label6, new GridConstraints(2, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        showButton = new JButton();
-        showButton.setText("MOSTRAR");
-        rootPanel.add(showButton, new GridConstraints(15, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JSeparator separator1 = new JSeparator();
         rootPanel.add(separator1, new GridConstraints(8, 2, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final JToolBar.Separator toolBar$Separator1 = new JToolBar.Separator();
@@ -301,12 +289,6 @@ public class RegisterMaintenance extends JDialog {
         rootPanel.add(searchButton, new GridConstraints(9, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         searchtextField = new JTextField();
         rootPanel.add(searchtextField, new GridConstraints(9, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(80, -1), null, 0, false));
-        editaButton = new JButton();
-        editaButton.setText("EDITAR");
-        rootPanel.add(editaButton, new GridConstraints(12, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        deleteButton = new JButton();
-        deleteButton.setText("ELIMINAR");
-        rootPanel.add(deleteButton, new GridConstraints(13, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JSeparator separator3 = new JSeparator();
         rootPanel.add(separator3, new GridConstraints(10, 1, 1, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
         final JToolBar.Separator toolBar$Separator3 = new JToolBar.Separator();
@@ -323,6 +305,12 @@ public class RegisterMaintenance extends JDialog {
         label8.setFont(new Font(label8.getFont().getName(), Font.BOLD, 16));
         label8.setText("INGRESE EL CI DEL CLIENTE");
         rootPanel.add(label8, new GridConstraints(9, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        editaButton = new JButton();
+        editaButton.setText("ACTUALIZAR ");
+        rootPanel.add(editaButton, new GridConstraints(7, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        deleteButton = new JButton();
+        deleteButton.setText("ELIMINAR");
+        rootPanel.add(deleteButton, new GridConstraints(13, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

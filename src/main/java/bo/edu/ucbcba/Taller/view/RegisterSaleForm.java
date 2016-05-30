@@ -107,12 +107,12 @@ public class RegisterSaleForm extends JDialog {
         try {
             Stock s = (Stock) stock.getSelectedItem();
             controllersale.create(code.getText(),
-                                    day.getText(),
-                                    month.getText(),
-                                    year.getText(),
-                                    s,
-                                    cant.getText(),
-                                    total.getText());
+                    day.getText(),
+                    month.getText(),
+                    year.getText(),
+                    s,
+                    cant.getText(),
+                    total.getText());
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
@@ -231,7 +231,7 @@ public class RegisterSaleForm extends JDialog {
         year.setText("");
         rootPanel.add(year, new GridConstraints(5, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         day = new JTextField();
-        rootPanel.add(day, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        rootPanel.add(day, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
     }
 
     /**
