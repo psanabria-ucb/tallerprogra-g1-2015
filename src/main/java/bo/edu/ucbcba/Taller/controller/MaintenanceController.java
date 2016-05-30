@@ -137,11 +137,16 @@ public class MaintenanceController {
 
     public void delete(int ci)
     {
-        EntityManager entityManager = TallerEntityManager.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(Maintenance.class,ci));
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        if(ci!=0) {
+            EntityManager entityManager = TallerEntityManager.createEntityManager();
+            entityManager.getTransaction().begin();
+            entityManager.remove(entityManager.find(Maintenance.class, ci));
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        }
+        else {
+            throw new ValidationException("ERROR CI INVALIDO");
+        }
     }
 
 
@@ -163,7 +168,7 @@ public class MaintenanceController {
             return res;
         }
         else {
-            throw new ValidationException("EL CAMPO DEBE SER UN NUMERO PARA BUSCAR");
+            throw new ValidationException("TIENE QUE INTRODUCIR EL CI DEL CLIENTE");
         }
 
     }
