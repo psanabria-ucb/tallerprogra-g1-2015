@@ -17,19 +17,27 @@ public class FacturaController {
     public void create(String ci,String nombre,String date, String cost,String des)
     {
         Factura maintenance = new Factura();
-        if(ci.matches("[0-9]+") && nombre.matches("[a-z]+")  && cost.matches("[0-9]+") && des.matches("[a-z]+"))
-        {
-
+        if (ci.matches("[0-9]+"))
             maintenance.setCi(Integer.parseInt(ci));
-            maintenance.setNombre(nombre);
-          //  maintenance.setDate(date);
-            maintenance.setCosto(Integer.parseInt(cost));
-            maintenance.setDescrip(des);
-        }
         else
-        {
-            throw new ValidationException("TIENE QUE LLENAR EL FORMULARIO");
-        }
+            throw new ValidationException("ci no es un numero");
+
+        //NOMBRE
+        if (nombre.matches("[a-zA-Z]+"))
+            maintenance.setNombre(nombre);
+        else
+            throw new ValidationException("Nombre solo admite letras");
+        //COSTO
+        if (cost.matches("[0-9]+"))
+            maintenance.setCosto(Integer.parseInt(cost));
+        else
+            throw new ValidationException("El costo no es un numero");
+        //descrip
+        maintenance.setDescrip(des);
+
+
+
+
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         entityManager.getTransaction().begin();
         entityManager.persist(maintenance);
