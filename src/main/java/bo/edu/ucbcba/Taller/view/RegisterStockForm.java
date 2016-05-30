@@ -191,7 +191,7 @@ public class RegisterStockForm extends JDialog {
         nombreRadioButton.setText("Nombre");
         rootPanel.add(nombreRadioButton, new GridConstraints(0, 5, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(76, 58), null, 0, false));
         codeRadioButton = new JRadioButton();
-        codeRadioButton.setText("Còdigo");
+        codeRadioButton.setText("Código");
         rootPanel.add(codeRadioButton, new GridConstraints(0, 6, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(71, 58), null, 0, false));
         searchText = new JTextField();
         rootPanel.add(searchText, new GridConstraints(0, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
