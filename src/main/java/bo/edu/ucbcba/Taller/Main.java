@@ -1,7 +1,7 @@
 package bo.edu.ucbcba.Taller;
 
-import bo.edu.ucbcba.Taller.view.MainForm;
 
+import bo.edu.ucbcba.Taller.view.MainForm;
 
 import javax.swing.*;
 
