@@ -4,6 +4,7 @@
     <persistence-unit name="Taller">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>bo.edu.ucbcba.Taller.model.Stock</class>
+        <class>bo.edu.ucbcba.Taller.model.Sale</class>
         <class>bo.edu.ucbcba.Taller.model.User</class>
         <class>bo.edu.ucbcba.Taller.model.Maintenance</class>
         <class>bo.edu.ucbcba.Taller.model.Factura</class>

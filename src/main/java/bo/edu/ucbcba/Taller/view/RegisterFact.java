@@ -10,8 +10,7 @@ import com.intellij.uiDesigner.core.GridLayoutManager;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.Calendar;
 import java.util.List;
 
@@ -33,6 +32,7 @@ public class RegisterFact extends JDialog {
     private JButton showButton;
     private JButton cancelButton;
     private JButton deleteButton;
+    private JButton actualizarButton;
 
     private FacturaController maintenanceController;
 
@@ -81,6 +81,42 @@ public class RegisterFact extends JDialog {
                 populateSearchCITableMan();
             }
         });
+
+
+
+
+        actualizarButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                populateActualizar();
+            }
+        });
+
+        tablemante.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                Integer ci=(Integer) tablemante.getValueAt(tablemante.getSelectedRow(),1);
+                String nombre=(String) tablemante.getValueAt(tablemante.getSelectedRow(),2);
+                String date=(String) tablemante.getValueAt(tablemante.getSelectedRow(),3);
+                Integer costo=(Integer) tablemante.getValueAt(tablemante.getSelectedRow(),4);
+                String des=(String) tablemante.getValueAt(tablemante.getSelectedRow(),5);
+
+                ciField.setText(Integer.toString(ci));
+                placaField.setText(nombre);
+                marcaField.setText(date);
+                costoField.setText(Integer.toString(costo));
+                descripArea.setText(des);
+
+
+            }
+
+
+        });
+
+
+
     }
 
     private void populateTableMan() {
@@ -142,6 +178,35 @@ public class RegisterFact extends JDialog {
         maintenanceController.delete(id);
         populateTableMan();
 
+    }
+
+    private void populateActualizar() {
+
+        Integer cod=(Integer) tablemante.getValueAt(tablemante.getSelectedRow(),0);
+        maintenanceController.delete(cod);
+        Boolean entro=true;
+
+        try {
+
+            maintenanceController.create(ciField.getText(),
+                    placaField.getText(),       // REGISTRA EL GENERO
+                    marcaField.getText(),
+                    costoField.getText(),
+                    descripArea.getText());
+
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
+            entro=false;
+
+
+        }
+        if(entro){
+            JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
+
+            clearMant();
+        }
+
+        populateTableMan();
     }
 
     private void populateSearchCITableMan() {
