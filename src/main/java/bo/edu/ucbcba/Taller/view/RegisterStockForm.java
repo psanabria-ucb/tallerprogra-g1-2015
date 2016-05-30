@@ -11,7 +11,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
 
 public class RegisterStockForm extends JDialog {
@@ -29,13 +28,15 @@ public class RegisterStockForm extends JDialog {
     private JButton searchButton;
     private JTable stockTable;
     private JButton deletebutton;
+    private JRadioButton nombreRadioButton;
+    private JRadioButton codeRadioButton;
 
     public RegisterStockForm(JFrame parent) {
         super(parent, "Registrar Repuesto", true);
         setContentPane(rootPanel);
         pack();
         setResizable(false);
-        setSize(600, 400);
+        setSize(900, 400);
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -65,6 +66,13 @@ public class RegisterStockForm extends JDialog {
         });
     }
 
+    public void clearstock() {
+        name.setText("");
+        cost.setText("");
+        code.setText("");
+        quantity.setText("");
+    }
+
     public void deletestock() {
         DefaultTableModel tm = (DefaultTableModel) stockTable.getModel();
         int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
@@ -81,7 +89,8 @@ public class RegisterStockForm extends JDialog {
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
-        //  JOptionPane.showMessageDialog(this, "Stock created successfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+        populateTable();
+        clearstock();
     }
 
     private void cancel() {
@@ -90,23 +99,31 @@ public class RegisterStockForm extends JDialog {
     }
 
     private void populateTable() {
-        List<Stock> movies = controller.searchStock(searchText.getText());
+
+        List<Stock> stock = controller.show();
+        if (nombreRadioButton.isSelected()) {
+            stock = controller.searchStockbyname(searchText.getText());
+        }
+        if (codeRadioButton.isSelected()) {
+            stock = controller.searchStockbycode(searchText.getText());
+        }
+
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("Id");
-        model.addColumn("Name");
-        model.addColumn("Code");
-        model.addColumn("Quantity");
-        model.addColumn("Cost");
+        model.addColumn("N°");
+        model.addColumn("Nombre");
+        model.addColumn("Código");
+        model.addColumn("Cantidad");
+        model.addColumn("Costo");
         stockTable.setModel(model);
 
-        for (Stock m : movies) {
+        for (Stock m : stock) {
             Object[] row = new Object[5];
 
             row[0] = m.getId();
             row[1] = m.getName();
-            row[2] = m.getCost();
-            row[3] = m.getCode();
-            row[4] = m.getQuantity();
+            row[2] = m.getCode();
+            row[3] = m.getQuantity();
+            row[4] = m.getCost();
             model.addRow(row);
         }
     }
@@ -127,7 +144,7 @@ public class RegisterStockForm extends JDialog {
      */
     private void $$$setupUI$$$() {
         rootPanel = new JPanel();
-        rootPanel.setLayout(new GridLayoutManager(8, 4, new Insets(10, 10, 10, 10), -1, -1));
+        rootPanel.setLayout(new GridLayoutManager(8, 9, new Insets(10, 10, 10, 10), -1, -1));
         final JLabel label1 = new JLabel();
         label1.setText("Registro de producto");
         rootPanel.add(label1, new GridConstraints(0, 1, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
@@ -154,23 +171,34 @@ public class RegisterStockForm extends JDialog {
         quantity = new JTextField();
         quantity.setText("");
         rootPanel.add(quantity, new GridConstraints(4, 1, 1, 3, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        saveButton = new JButton();
-        saveButton.setText("Guardar");
-        rootPanel.add(saveButton, new GridConstraints(5, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        cancelButton = new JButton();
-        cancelButton.setText("Cancelar");
-        rootPanel.add(cancelButton, new GridConstraints(5, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JScrollPane scrollPane1 = new JScrollPane();
+        rootPanel.add(scrollPane1, new GridConstraints(1, 4, 7, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_WANT_GROW, null, null, null, 0, false));
+        stockTable = new JTable();
+        scrollPane1.setViewportView(stockTable);
         searchText = new JTextField();
         searchText.setText("");
-        rootPanel.add(searchText, new GridConstraints(6, 0, 1, 3, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        rootPanel.add(searchText, new GridConstraints(0, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(152, 24), null, 0, false));
         searchButton = new JButton();
         searchButton.setText("Buscar");
-        rootPanel.add(searchButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        stockTable = new JTable();
-        rootPanel.add(stockTable, new GridConstraints(7, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
+        rootPanel.add(searchButton, new GridConstraints(0, 8, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        saveButton = new JButton();
+        saveButton.setText("Guardar");
+        rootPanel.add(saveButton, new GridConstraints(6, 0, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         deletebutton = new JButton();
         deletebutton.setText("Eliminar");
-        rootPanel.add(deletebutton, new GridConstraints(5, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.add(deletebutton, new GridConstraints(6, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        cancelButton = new JButton();
+        cancelButton.setText("Cancelar");
+        rootPanel.add(cancelButton, new GridConstraints(6, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        final JLabel label6 = new JLabel();
+        label6.setText("Buscar por");
+        rootPanel.add(label6, new GridConstraints(0, 4, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        nombreRadioButton = new JRadioButton();
+        nombreRadioButton.setText("Nombre");
+        rootPanel.add(nombreRadioButton, new GridConstraints(0, 5, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        codeRadioButton = new JRadioButton();
+        codeRadioButton.setText("Còdigo");
+        rootPanel.add(codeRadioButton, new GridConstraints(0, 6, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**
