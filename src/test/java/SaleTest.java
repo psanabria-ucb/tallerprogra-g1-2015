@@ -1,6 +1,8 @@
-/**
- * Created by Usuario on 30/05/2016.
- */
+import org.junit.Test;
 
 public class SaleTest {
+    @Test
+    public void testSomething() {
+        
+    }
 }

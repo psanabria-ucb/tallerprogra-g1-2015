@@ -19,6 +19,7 @@ public class MainForm extends JFrame {
     private JButton ventasButton;
     private JButton salirButton;
     private JButton mantenimientoButton;
+    private JButton historialDeVentasButton;
 
     public MainForm() {
         super("TALLER DE MANTENIMIENTO");
@@ -60,6 +61,17 @@ public class MainForm extends JFrame {
                 exit();
             }
         });
+        historialDeVentasButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                launcHistory();
+            }
+        });
+    }
+
+    private void launcHistory(){
+        InformeVenta form = new InformeVenta(this);
+        form.setVisible(true);
     }
 
     private void exit() {

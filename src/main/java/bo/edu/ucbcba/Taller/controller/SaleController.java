@@ -4,43 +4,35 @@ import bo.edu.ucbcba.Taller.dao.TallerEntityManager;
 import bo.edu.ucbcba.Taller.exceptions.ValidationException;
 import bo.edu.ucbcba.Taller.model.Sale;
 import bo.edu.ucbcba.Taller.model.Stock;
-
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
-
-
-/**
- * Created by Usuario on 27/05/2016.
- */
 public class SaleController {
 
-     public void create(String code, String day,String month,String year,  Stock s, String cant, String total){
+     public void create(String cant, Stock s, String day, String month, String year){
 
+         int p,r;
         Sale sale = new Sale();
 
-        if (day.isEmpty() || month.isEmpty() || year.isEmpty() || code.isEmpty() || total.isEmpty() || cant.isEmpty())
-            throw new ValidationException("Por favor verifique los campos vacios");
+        if (day.isEmpty() || month.isEmpty() || year.isEmpty() || cant.isEmpty())
+            throw new ValidationException("Por favor verífique los campos vacios");
 
-        if (code.matches("\\A[^0-9`!@#\\$%\\^&*+_=]+\\z"))
-            sale.setCode(code);
-        else
-            throw new ValidationException("En el campo código solamente se permite letras");
-
-        if (total.matches("[\\-\\+]?[0-9]*(\\.[0-9]+)?"))
-            sale.settotal(Integer.parseInt(total));
-        else
-            throw new ValidationException("En el campo total solamente se permite numeros");
-
-        if (cant.matches("[0-9]{1,10000}"))
-            sale.setcant(Integer.parseInt(cant));
-        else
-            throw new ValidationException("En el campo cantidad solamente se permite numeros enteros");
+        if (cant.matches("[0-9]{1,100}")) {
+            if (cant.length() > 7)
+                throw new ValidationException("En el campo cantidad solamente se permite una longitud maxima de 7");
+            else
+                sale.setcant(Integer.parseInt(cant));
+                p = getStockPrice(s);
+                r = p * Integer.parseInt(cant);
+                sale.setPrice(p);
+                sale.settotal(r);
+        }
+        else{
+             throw new ValidationException("En el campo cantidad solamente se permite numeros enteros");
+        }
 
         sale.setstocks(s);
 
@@ -58,20 +50,28 @@ public class SaleController {
              }
          }
          else {
-             throw new ValidationException("En el campo Dia ingreso incorrectamente el día");
+             throw new ValidationException("En el campo Día ingreso incorrectamente el día");
          }
 
-        EntityManager entityManager = TallerEntityManager.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.persist(sale);
-        entityManager.getTransaction().commit();
-        entityManager.close();
+         EntityManager entityManager = TallerEntityManager.createEntityManager();
+         entityManager.getTransaction().begin();
+         entityManager.persist(sale);
+         entityManager.getTransaction().commit();
+         entityManager.close();
+    }
+
+    public int getStockPrice(Stock s) {
+        EntityManager em = TallerEntityManager.createEntityManager();
+        TypedQuery query = em.createQuery("select d from Stock d WHERE GROUP BY.s d.cost", Stock.class);
+        int list = query.getFirstResult();
+        em.close();
+        return list;
     }
 
     public List<Sale> searchSale(String q) {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
-        TypedQuery<Sale> query = entityManager.createQuery("select m from Sale m WHERE lower(m.code) like :code", Sale.class);
-        query.setParameter("code", "%" + q.toLowerCase() + "%");
+        TypedQuery<Sale> query = entityManager.createQuery("select m from Sale m WHERE lower(m.d) like :d", Sale.class);
+        query.setParameter("d", "%" + q.toLowerCase() + "%");
         List<Sale> response = query.getResultList();
         entityManager.close();
         return response;

@@ -11,6 +11,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Arc2D;
 import java.util.List;
 
 public class RegisterStockForm extends JDialog {
@@ -30,6 +33,7 @@ public class RegisterStockForm extends JDialog {
     private JButton deletebutton;
     private JRadioButton nombreRadioButton;
     private JRadioButton codeRadioButton;
+    private JButton editButton;
 
     public RegisterStockForm(JFrame parent) {
         super(parent, "Repuestos", true);
@@ -39,10 +43,7 @@ public class RegisterStockForm extends JDialog {
         setSize(900, 400);
         saveButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                saveUser();
-
-            }
+            public void actionPerformed(ActionEvent e) {saveUser();}
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -64,6 +65,47 @@ public class RegisterStockForm extends JDialog {
                 deletestock();
             }
         });
+        editButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                actualizar();
+            }
+        });
+        stockTable.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e){
+                super.mouseClicked(e);
+                String nombre = (String) stockTable.getValueAt(stockTable.getSelectedRow(), 1);
+                String codigo = (String) stockTable.getValueAt(stockTable.getSelectedRow(), 2);
+                Integer cantidad = (Integer) stockTable.getValueAt(stockTable.getSelectedRow(), 3);
+                Float costo = (Float) stockTable.getValueAt(stockTable.getSelectedRow(), 4);
+
+                name.setText(nombre);
+                cost.setText(Float.toString(costo));
+                code.setText(codigo);
+                quantity.setText(Integer.toString(cantidad));
+            }
+        });
+    }
+
+    public void actualizar(){
+        Integer cod = (Integer) stockTable.getValueAt(stockTable.getSelectedRow(), 0);
+        controller.delete(cod);
+        Boolean entro = true;
+        try {
+            controller.create(name.getText(),
+                                cost.getText(),       // REGISTRA EL GENERO
+                                code.getText(),
+                                quantity.getText());
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
+            entro = false;
+        }
+        if (entro) {
+            JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
+            clearstock();
+        }
+        populateTable();
     }
 
     public void clearstock() {
@@ -74,6 +116,7 @@ public class RegisterStockForm extends JDialog {
     }
 
     public void deletestock() {
+
         DefaultTableModel tm = (DefaultTableModel) stockTable.getModel();
         int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
         controller.delete(id);
@@ -83,14 +126,13 @@ public class RegisterStockForm extends JDialog {
     private void saveUser() {
         try {
             controller.create(name.getText(),
-                    cost.getText(),
-                    code.getText(),
-                    quantity.getText());
+                                cost.getText(),
+                                code.getText(),
+                                quantity.getText());
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
         populateTable();
-        clearstock();
     }
 
     private void cancel() {
@@ -103,15 +145,15 @@ public class RegisterStockForm extends JDialog {
         List<Stock> stock = controller.show();
         if (nombreRadioButton.isSelected()) {
             stock = controller.searchStockbyname(searchText.getText());
-        }
-        if (codeRadioButton.isSelected()) {
-            stock = controller.searchStockbycode(searchText.getText());
+        }else{
+            if (codeRadioButton.isSelected())
+                stock = controller.searchStockbycode(searchText.getText());
         }
 
         DefaultTableModel model = new DefaultTableModel();
-        model.addColumn("N");
+        model.addColumn("ID");
         model.addColumn("Nombre");
-        model.addColumn("Codigo");
+        model.addColumn("Código");
         model.addColumn("Cantidad");
         model.addColumn("Costo");
         stockTable.setModel(model);

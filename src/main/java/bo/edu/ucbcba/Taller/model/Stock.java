@@ -1,25 +1,15 @@
 package bo.edu.ucbcba.Taller.model;
 
-/* Stock Entity */
-
-//import javax.persistence.Entity;
-//import javax.persistence.Id;
-//import javax.persistence.Column;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import java.util.LinkedList;
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.*;
 
-@Entity //Esto es una tabla
+@Entity
 public class Stock {
 
     @Id
-    //@SequenceGenerator ( name = "seq" , initialValue = 1 , allocationSize = 100 )
-    @GeneratedValue ( strategy = GenerationType.AUTO) //. SEQUENCE , generator = "seq" )
+    @GeneratedValue ( strategy = GenerationType.AUTO)
     private int id;
-    //hay que corregir el id no se genera automaticamente
 
     @OneToMany
     private List<Sale> sales;
@@ -87,7 +77,7 @@ public class Stock {
 
     @Override
     public String toString() {
-        return String.format("%s", code);
+        return String.format("%s", name);
     }
 
 }

@@ -1,11 +1,6 @@
 package bo.edu.ucbcba.Taller.model;
 
-/**
- * Created by Usuario on 27/05/2016.
- */
-
 import javax.persistence.*;
-
 
 @Entity
 public class Sale {
@@ -20,12 +15,6 @@ public class Sale {
 
     public String getD(){return d;}
     public void setD(String d){this.d=d;}
-
-    @Column(length = 50)
-    private String code;
-
-    public String getCode(){return code;}
-    public void setCode (String code){this.code=code;}
 
     @ManyToOne
     private Stock stocks;
@@ -43,6 +32,10 @@ public class Sale {
     public int getcant(){return cant;}
     public void setcant(int cant){this.cant=cant;}
 
+    private int price;
+
+    public int getPrice(){return price;}
+    public void setPrice(int price){this.price=price;}
 
 }
 

@@ -10,8 +10,6 @@ import java.util.List;
 
 public class StockController {
 
-
-
     public void create(String name, String cost, String code, String quantity) {
 
         EntityManager entityManager = TallerEntityManager.createEntityManager();
@@ -22,18 +20,26 @@ public class StockController {
         if (name.isEmpty() || cost.isEmpty() || code.isEmpty() || quantity.isEmpty())
             throw new ValidationException("Por favor verifique los campos vacios");
 
-
         if (name.matches("\\A[^0-9`!@#\\$%\\^&*+_=]+\\z"))
-            stock.setName(name);
+            if (name.length()>25)
+                throw new ValidationException("En el campo nombre solamente se permite una longitud máxima de 25");
+            else
+                stock.setName(name);
         else
             throw new ValidationException("En el campo nombre solamente se permite letras");
 
         if (cost.matches("[\\-\\+]?[0-9]*(\\.[0-9]+)?"))
-            stock.setCost(Float.parseFloat(cost));
+            if (cost.length()>7)
+                throw new ValidationException("En el campo costo solamente se permite una longitud maxima de 7");
+            else
+                stock.setCost(Float.parseFloat(cost));
         else
             throw new ValidationException("En el campo costo solamente se permite numeros y decimales");
 
-        if (code.matches("[a-zA-Z]{1,1000}")){
+        if (code.matches("[a-zA-Z]{1,1000}")) {
+            if (code.length() > 7) {
+                throw new ValidationException("En el campo código solamente se permite una longitud máxima de 7");
+            } else {
                 EntityManager em = TallerEntityManager.createEntityManager();
                 TypedQuery<Stock> query = em.createQuery("select c from Stock c WHERE c.code = :a", Stock.class);
                 query.setParameter("a", code);
@@ -43,13 +49,16 @@ public class StockController {
                     stock.setCode(code);
                 else
                     throw new ValidationException("El código ya existe");
-        }
-        else {
+            }
+        }else{
             throw new ValidationException("En el campo código solamente se permite letras");
         }
 
         if (quantity.matches("[0-9]{1,10000}"))
-            stock.setQuantity(Integer.parseInt(quantity));
+            if (quantity.length()>7)
+                throw new ValidationException("En el campo cantidad solamente se permite una longitud maxima de 7");
+            else
+                stock.setQuantity(Integer.parseInt(quantity));
         else
             throw new ValidationException("En el campo cantidad solamente se permite numeros enteros");
 
@@ -61,7 +70,7 @@ public class StockController {
 
     public List<Stock> getAllStock() {
         EntityManager em = TallerEntityManager.createEntityManager();
-        TypedQuery<Stock> query = em.createQuery("select d from Stock d order by d.code", Stock.class);
+        TypedQuery<Stock> query = em.createQuery("select d from Stock d order by d.name", Stock.class);
         List<Stock> list = query.getResultList();
         em.close();
         return list;
@@ -97,12 +106,9 @@ public class StockController {
     public void delete(int ci)
     {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
-       // if (ci==(-1))
-         //   throw new ValidationException("Porfavor seleccione un repuesto para eliminar");
-        //else
-            entityManager.getTransaction().begin();
-            entityManager.remove(entityManager.find(Stock.class, ci));
-            entityManager.getTransaction().commit();
-            entityManager.close();
+        entityManager.getTransaction().begin();
+        entityManager.remove(entityManager.find(Stock.class, ci));
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }
