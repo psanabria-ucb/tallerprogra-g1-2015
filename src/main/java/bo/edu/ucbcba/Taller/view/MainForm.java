@@ -2,6 +2,7 @@ package bo.edu.ucbcba.Taller.view;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
+import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +22,7 @@ public class MainForm extends JFrame {
     private JButton mantenimientoButton;
     private JButton historialDeVentasButton;
     private JButton registrarClienteButton;
+    private JTextField Img;
 
     public MainForm() {
         super("TALLER DE MANTENIMIENTO");
@@ -53,7 +55,7 @@ public class MainForm extends JFrame {
         ventasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ventasregister();
+                launcHistory();
             }
         });
         salirButton.addActionListener(new ActionListener() {
@@ -65,7 +67,7 @@ public class MainForm extends JFrame {
         historialDeVentasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                launcHistory();
+                ventasregister();
             }
         });
 
@@ -79,7 +81,7 @@ public class MainForm extends JFrame {
 
     }
 
-    private void launcHistory(){
+    private void launcHistory() {
         InformeVenta form = new InformeVenta(this);
         form.setVisible(true);
     }
@@ -109,9 +111,8 @@ public class MainForm extends JFrame {
         f.setVisible(true);
     }
 
-    private  void clienteregisterr()
-    {
-        RegisterCustomer r= new RegisterCustomer(this);
+    private void clienteregisterr() {
+        RegisterCustomer r = new RegisterCustomer(this);
         r.setVisible(true);
     }
 
@@ -131,22 +132,30 @@ public class MainForm extends JFrame {
      */
     private void $$$setupUI$$$() {
         rootPanel = new JPanel();
-        rootPanel.setLayout(new GridLayoutManager(4, 2, new Insets(0, 0, 0, 0), -1, -1));
-        stockButton = new JButton();
-        stockButton.setText("Repuesto");
-        rootPanel.add(stockButton, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.setLayout(new GridLayoutManager(5, 3, new Insets(0, 0, 0, 0), -1, -1));
         mantenimientoButton = new JButton();
         mantenimientoButton.setText("Mantenimiento");
-        rootPanel.add(mantenimientoButton, new GridConstraints(2, 0, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.add(mantenimientoButton, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         facturacionButton = new JButton();
-        facturacionButton.setText("Factura");
-        rootPanel.add(facturacionButton, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        facturacionButton.setText("Facturacion");
+        rootPanel.add(facturacionButton, new GridConstraints(2, 0, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        registrarClienteButton = new JButton();
+        registrarClienteButton.setText("Cliente");
+        rootPanel.add(registrarClienteButton, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         salirButton = new JButton();
         salirButton.setText("Salir");
-        rootPanel.add(salirButton, new GridConstraints(1, 1, 2, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.add(salirButton, new GridConstraints(4, 2, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        historialDeVentasButton = new JButton();
+        historialDeVentasButton.setText("Button");
+        rootPanel.add(historialDeVentasButton, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        stockButton = new JButton();
+        stockButton.setText("Repuestos");
+        rootPanel.add(stockButton, new GridConstraints(1, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         ventasButton = new JButton();
-        ventasButton.setText("Venta");
-        rootPanel.add(ventasButton, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        ventasButton.setText("Ventas");
+        rootPanel.add(ventasButton, new GridConstraints(1, 0, 1, 1, GridConstraints.ANCHOR_EAST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        Img = new JTextField();
+        rootPanel.add(Img, new GridConstraints(0, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
     }
 
     /**
