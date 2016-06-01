@@ -85,6 +85,8 @@ public class StockController {
         return response;
     }
 
+
+
     public List<Stock> searchStockbyname(String q) {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         TypedQuery<Stock> query = entityManager.createQuery("select m from Stock m WHERE lower(m.name) like :name", Stock.class);
@@ -103,12 +105,35 @@ public class StockController {
         return response;
     }
 
-    public void delete(int ci)
+    public static void delete(int id)
     {
-        EntityManager entityManager = TallerEntityManager.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.remove(entityManager.find(Stock.class, ci));
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        if (id!=0)
+        {
+            EntityManager entityManager = TallerEntityManager.createEntityManager();
+            entityManager.getTransaction().begin();
+            entityManager.remove(entityManager.find(Stock.class, id));
+            entityManager.getTransaction().commit();
+            entityManager.close();
+        }
+        else
+        {
+            throw new ValidationException("Seleccione el producto que desea eliminar");
+        }
+    }
+
+    public Stock getStock(int id)
+    {
+        if(id!=0)
+        {
+            EntityManager entityManager = TallerEntityManager.createEntityManager();
+            entityManager.getTransaction().begin();
+            Stock response = entityManager.find(Stock.class,id);
+            entityManager.getTransaction().commit();
+            entityManager.close();
+            return response;
+        }
+        else {
+            throw new ValidationException("Seleccione el producto que desea editar");
+        }
     }
 }

@@ -34,6 +34,7 @@ public class RegisterStockForm extends JDialog {
     private JRadioButton nombreRadioButton;
     private JRadioButton codeRadioButton;
     private JButton editButton;
+    private JButton mostrarDatosButton;
 
     public RegisterStockForm(JFrame parent) {
         super(parent, "Repuestos", true);
@@ -41,6 +42,13 @@ public class RegisterStockForm extends JDialog {
         pack();
         setResizable(false);
         setSize(900, 400);
+      //  populateTable();
+        mostrarDatosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                mostrar();
+            }
+        });
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {saveUser();}
@@ -52,7 +60,7 @@ public class RegisterStockForm extends JDialog {
             }
         });
         controller = new StockController();
-        populateTable();
+
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -88,24 +96,38 @@ public class RegisterStockForm extends JDialog {
         });
     }
 
-    public void actualizar(){
-        Integer cod = (Integer) stockTable.getValueAt(stockTable.getSelectedRow(), 0);
-        controller.delete(cod);
-        Boolean entro = true;
-        try {
-            controller.create(name.getText(),
-                                cost.getText(),       // REGISTRA EL GENERO
-                                code.getText(),
-                                quantity.getText());
-        } catch (ValidationException ex) {
-            JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
-            entro = false;
-        }
-        if (entro) {
-            JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
-            clearstock();
-        }
+    public void mostrar(){
         populateTable();
+    }
+    public void actualizar() {
+        DefaultTableModel tm = (DefaultTableModel) stockTable.getModel();
+        if (stockTable.getSelectedRowCount() > 0) {
+            int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
+           // Integer cod = (Integer) stockTable.getValueAt(stockTable.getSelectedRow(), 0);
+            controller.delete(id);
+            Boolean entro = true;
+            try {
+                controller.create(name.getText(),
+                        cost.getText(),       // REGISTRA EL GENERO
+                        code.getText(),
+                        quantity.getText());
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
+                entro = false;
+            }
+            if (entro) {
+                JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
+                clearstock();
+            }
+            populateTable();
+        } else {
+            try {
+                controller.getStock(0);
+
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de selección", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     public void clearstock() {
@@ -116,11 +138,18 @@ public class RegisterStockForm extends JDialog {
     }
 
     public void deletestock() {
-
         DefaultTableModel tm = (DefaultTableModel) stockTable.getModel();
-        int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
-        controller.delete(id);
-        populateTable();
+        if (stockTable.getSelectedRowCount() > 0) {
+            int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
+            controller.delete(id);
+            populateTable();
+        } else {
+            try {
+                controller.delete(0);
+            } catch (ValidationException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de selección", JOptionPane.ERROR_MESSAGE);
+            }
+        }
     }
 
     private void saveUser() {
@@ -140,15 +169,17 @@ public class RegisterStockForm extends JDialog {
         dispose();
     }
 
-    private void populateTable() {
-
+    private void populateTable(){
         List<Stock> stock = controller.show();
-        if (nombreRadioButton.isSelected()) {
+
+        if (nombreRadioButton.isSelected())
             stock = controller.searchStockbyname(searchText.getText());
-        }else{
-            if (codeRadioButton.isSelected())
+        if (codeRadioButton.isSelected())
+            try {
                 stock = controller.searchStockbycode(searchText.getText());
-        }
+            } catch (ValidationException ex) {
+               JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de Formato", JOptionPane.ERROR_MESSAGE);
+            }
 
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID");
@@ -169,6 +200,9 @@ public class RegisterStockForm extends JDialog {
             model.addRow(row);
         }
     }
+
+
+
 
     {
 // GUI initializer generated by IntelliJ IDEA GUI Designer
