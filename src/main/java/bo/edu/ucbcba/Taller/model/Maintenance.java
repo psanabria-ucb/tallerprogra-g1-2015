@@ -15,7 +15,7 @@ public class Maintenance
     @Column(length = 50)
     private int ci;
 
-    @Column(length = 100)
+    @Column(length = 6)
     private String placa;
 
     @Column(length = 100)

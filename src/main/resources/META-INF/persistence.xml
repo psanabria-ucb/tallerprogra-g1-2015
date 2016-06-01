@@ -8,6 +8,7 @@
         <class>bo.edu.ucbcba.Taller.model.User</class>
         <class>bo.edu.ucbcba.Taller.model.Maintenance</class>
         <class>bo.edu.ucbcba.Taller.model.Factura</class>
+        <class>bo.edu.ucbcba.Taller.model.Vehiculo</class>
 
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:derby:Taller;create=true"/>

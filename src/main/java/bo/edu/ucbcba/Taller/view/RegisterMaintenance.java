@@ -22,7 +22,6 @@ import java.util.List;
 public class RegisterMaintenance extends JDialog {
     private JTextField ciField;
     private JTextField placaField;
-    private JTextField marcaField;
     private JTextField costoField;
     private JTextArea descripArea;
     private JButton addButton;
@@ -34,6 +33,7 @@ public class RegisterMaintenance extends JDialog {
     private JButton showButton;
     private JTextField searchtextField;
     private JButton cancelButton;
+    private JComboBox comboBoxMarcaq;
     private MaintenanceController maintenanceController;
 
     public RegisterMaintenance(JFrame parent) {
@@ -45,12 +45,33 @@ public class RegisterMaintenance extends JDialog {
         pack();
         populateTableMan();
         setResizable(false);
+        editaButton.setEnabled(false);
+        deleteButton.setEnabled(false);
 
 
         editaButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                UpdateTabla();
+                //UpdateTabla();
+                int resp=JOptionPane.showConfirmDialog(null,"DESEA EDITAR");
+                if (JOptionPane.OK_OPTION == resp){
+                    //System.out.println("Selecciona opción Afirmativa");
+                    //clearMant();
+                    //deleteMan();
+                    //populateTableMan();
+                    UpdateTabla();
+                    clearMant();
+                }
+                else{
+                    //System.out.println("No selecciona una opción afirmativa");
+                    deleteButton.setEnabled(false);
+                    addButton.setEnabled(true);
+                    editaButton.setEnabled(false);
+                    clearMant();
+                }
+                deleteButton.setEnabled(false);
+                addButton.setEnabled(true);
+                editaButton.setEnabled(false);
             }
         });
         addButton.addActionListener(new ActionListener() {
@@ -71,9 +92,27 @@ public class RegisterMaintenance extends JDialog {
         deleteButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                deleteMan();
-                populateTableMan();
+                //deleteMan();
+                //populateTableMan();
+                int resp=JOptionPane.showConfirmDialog(null,"DESEA ELIMINAR");
+                if (JOptionPane.OK_OPTION == resp){
+                    //System.out.println("Selecciona opción Afirmativa");
+                    clearMant();
+                    deleteMan();
+                    populateTableMan();
+                }
+                else{
+                    //System.out.println("No selecciona una opción afirmativa");
+                    deleteButton.setEnabled(false);
+                    addButton.setEnabled(true);
+                    editaButton.setEnabled(false);
+                    clearMant();
+                }
+                deleteButton.setEnabled(false);
+                addButton.setEnabled(true);
+                editaButton.setEnabled(false);
             }
+
         });
 
         searchButton.addActionListener(new ActionListener() {
@@ -96,9 +135,13 @@ public class RegisterMaintenance extends JDialog {
 
                 ciField.setText(Integer.toString(ci));
                 placaField.setText(placa);
-                marcaField.setText(marca);
+                //marcaField.setText(marca);
+                comboBoxMarcaq.setSelectedItem(marca);
                 costoField.setText(Integer.toString(costo));
                 descripArea.setText(descrip);
+                editaButton.setEnabled(true);
+                addButton.setEnabled(false);
+                deleteButton.setEnabled(true);
             }
         });
     }
@@ -129,14 +172,15 @@ public class RegisterMaintenance extends JDialog {
     private void clearMant() {
         ciField.setText("");
         placaField.setText("");
-        marcaField.setText("");
+        //marcaField.setText("");
+        comboBoxMarcaq.setSelectedItem("");
         costoField.setText("");
         descripArea.setText("");
     }
 
     public void addMan() {
         try {
-            maintenanceController.create(ciField.getText(), placaField.getText(), marcaField.getText(), costoField.getText(), descripArea.getText());
+            maintenanceController.create(ciField.getText(), placaField.getText(), (String) comboBoxMarcaq.getSelectedItem(), costoField.getText(), descripArea.getText());
             populateTableMan();
             clearMant();
         } catch (ValidationException ex) {
@@ -164,7 +208,8 @@ public class RegisterMaintenance extends JDialog {
         String placa = (String) tm.getValueAt(tablemante.getSelectedRow(), 1);
         placaField.setText(placa);
         String marca = (String) tm.getValueAt(tablemante.getSelectedRow(), 2);
-        marcaField.setText(marca);
+        comboBoxMarcaq.setSelectedItem(marca);
+        //marcaField.setText(marca);
         String costo = (String) tm.getValueAt(tablemante.getSelectedRow(), 3);
         costoField.setText(costo);
         String descripcion = (String) tm.getValueAt(tablemante.getSelectedRow(), 4);
@@ -182,6 +227,27 @@ public class RegisterMaintenance extends JDialog {
         }
 
         DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("NUM");
+        model.addColumn("CI");
+        model.addColumn("PLACA");
+        model.addColumn("MARCA");
+        model.addColumn("COSTO");
+        model.addColumn("DESCRIPCION");
+        tablemante.setModel(model);
+
+        for (Maintenance m : maintenances) {
+            Object[] row = new Object[6];
+            row[0] = m.getId();
+            row[1] = m.getCi();
+            row[2] = m.getPlaca();
+            row[3] = m.getMarca();
+            row[4] = m.getCosto();
+            row[5] = m.getDescrip();
+            model.addRow(row);
+        }
+
+        /*
+        DefaultTableModel model = new DefaultTableModel();
         model.addColumn("CI");
         model.addColumn("PLACA");
         model.addColumn("MARCA");
@@ -197,6 +263,7 @@ public class RegisterMaintenance extends JDialog {
             row[4] = m.getDescrip();
             model.addRow(row);
         }
+        */
     }
 
     private void UpdateTabla() {
@@ -205,7 +272,7 @@ public class RegisterMaintenance extends JDialog {
         maintenanceController.delete(cod);
         Boolean entro = true;
         try {
-            maintenanceController.create(ciField.getText(), placaField.getText(), marcaField.getText(), costoField.getText(), descripArea.getText());
+            maintenanceController.create(ciField.getText(), placaField.getText(), /*marcaField.getText()*/(String) comboBoxMarcaq.getSelectedItem(), costoField.getText(), descripArea.getText());
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(this, "ERROR AL ELIMINAR");
             entro = false;
@@ -254,8 +321,8 @@ public class RegisterMaintenance extends JDialog {
         rootPanel.add(ciField, new GridConstraints(2, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         placaField = new JTextField();
         rootPanel.add(placaField, new GridConstraints(3, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        marcaField = new JTextField();
-        rootPanel.add(marcaField, new GridConstraints(4, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+       // marcaField = new JTextField();
+        //rootPanel.add(marcaField, new GridConstraints(4, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         costoField = new JTextField();
         rootPanel.add(costoField, new GridConstraints(5, 3, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         descripArea = new JTextArea();

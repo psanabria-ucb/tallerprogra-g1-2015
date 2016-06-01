@@ -168,7 +168,21 @@ public class MaintenanceController {
             return res;
         }
         else {
-            throw new ValidationException("TIENE QUE INTRODUCIR EL CI DEL CLIENTE");
+            //throw new ValidationException("TIENE QUE INTRODUCIR EL CI DEL CLIENTE");
+            if(q.matches("[0-9a-z]+") || q.matches("[0-9A-Z]+"))
+            {
+
+            }
+            else {
+                throw new ValidationException("TIENE QUE INTRODUCIR EL CI DEL CLIENTE O LA PLACA DEL VEHICULO");
+            }
+            EntityManager entityManager = TallerEntityManager.createEntityManager();
+            TypedQuery<Maintenance> query = entityManager.createQuery("select m from Maintenance m WHERE m.placa = :q",Maintenance.class);
+            query.setParameter("q",q);
+            List<Maintenance> res = query.getResultList();
+            entityManager.close();
+            return res;
+
         }
 
     }
