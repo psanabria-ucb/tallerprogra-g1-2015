@@ -1,5 +1,7 @@
 package bo.edu.ucbcba.Taller.model;
 
+import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.*;
@@ -47,6 +49,12 @@ public class Stock {
         return name;
     }
     public void setName(String name) {
+        if (name == null)
+            throw new ValidationException("Null title");
+        if (name.isEmpty())
+            throw new ValidationException("Title can't be empty");
+        if (name.length() > 255)
+            throw new ValidationException("Title is too long");
         this.name = name;
     }
 

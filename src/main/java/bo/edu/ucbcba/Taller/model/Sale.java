@@ -1,5 +1,7 @@
 package bo.edu.ucbcba.Taller.model;
 
+import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+
 import javax.persistence.*;
 
 @Entity
@@ -14,7 +16,15 @@ public class Sale {
     private String d;
 
     public String getD(){return d;}
-    public void setD(String d){this.d=d;}
+    public void setD(String d){
+        if (d == null)
+            throw new ValidationException("Null title");
+        if (d.isEmpty())
+            throw new ValidationException("Title can't be empty");
+        if (d.length() > 255)
+            throw new ValidationException("Title is too long");
+        this.d=d;
+    }
 
     @ManyToOne
     private Stock stocks;
@@ -36,6 +46,5 @@ public class Sale {
 
     public int getPrice(){return price;}
     public void setPrice(int price){this.price=price;}
-
 }
 

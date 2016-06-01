@@ -22,9 +22,7 @@ public class RegisterSaleForm extends JDialog {
     private JTextField cant;
     private JButton cancelButton;
     private JButton saveButton;
-    private JTextField day;
-    private JTextField month;
-    private JTextField year;
+    private JTextField date;
 
     private final StockController controllerstock;
     private SaleController controllersale;
@@ -66,11 +64,9 @@ public class RegisterSaleForm extends JDialog {
      private void saveUser() {
         try {
             Stock s = (Stock) stockname.getSelectedItem();
-            controllersale.create(cant.getText(),
-                                    s,
-                                    day.getText(),
-                                    month.getText(),
-                                    year.getText());
+            controllersale.create(s,
+                                    cant.getText(),
+                                    date.getText());
         } catch (ValidationException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage(), "Format error", JOptionPane.ERROR_MESSAGE);
         }
@@ -139,17 +135,17 @@ public class RegisterSaleForm extends JDialog {
         final JLabel label8 = new JLabel();
         label8.setText("Mes");
         rootPanel.add(label8, new GridConstraints(3, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        month = new JTextField();
-        month.setText("");
-        rootPanel.add(month, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+        date = new JTextField();
+        date.setText("");
+        rootPanel.add(date, new GridConstraints(3, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
         final JLabel label9 = new JLabel();
         label9.setText("Año");
         rootPanel.add(label9, new GridConstraints(4, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        year = new JTextField();
-        year.setText("");
-        rootPanel.add(year, new GridConstraints(4, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        day = new JTextField();
-        rootPanel.add(day, new GridConstraints(2, 1, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
+
+
+
+
+
     }
 
     /**
