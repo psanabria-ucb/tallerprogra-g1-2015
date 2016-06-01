@@ -20,6 +20,7 @@ public class MainForm extends JFrame {
     private JButton salirButton;
     private JButton mantenimientoButton;
     private JButton historialDeVentasButton;
+    private JButton registrarClienteButton;
 
     public MainForm() {
         super("TALLER DE MANTENIMIENTO");
@@ -61,12 +62,21 @@ public class MainForm extends JFrame {
                 exit();
             }
         });
-        historialDeVentasButton.addActionListener(new ActionListener() {
+      historialDeVentasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 launcHistory();
             }
         });
+
+
+        registrarClienteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clienteregisterr();
+            }
+        });
+
     }
 
     private void launcHistory(){
@@ -97,6 +107,12 @@ public class MainForm extends JFrame {
     private void Register() {
         RegisterFact f = new RegisterFact(this);
         f.setVisible(true);
+    }
+
+    private  void clienteregisterr()
+    {
+        RegisterCustomer r= new RegisterCustomer(this);
+        r.setVisible(true);
     }
 
     {
