@@ -62,13 +62,13 @@ public class MainForm extends JFrame {
                 exit();
             }
         });
-      historialDeVentasButton.addActionListener(new ActionListener() {
+     /* historialDeVentasButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 launcHistory();
             }
         });
-
+*/
 
         registrarClienteButton.addActionListener(new ActionListener() {
             @Override
