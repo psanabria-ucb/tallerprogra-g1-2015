@@ -366,7 +366,7 @@ public class RegisterMaintenance extends JDialog {
         rootPanel.add(label7, new GridConstraints(13, 2, 1, 2, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label8 = new JLabel();
         label8.setFont(new Font(label8.getFont().getName(), Font.BOLD, 16));
-        label8.setText("INGRESE EL CI DEL CLIENTE");
+        label8.setText("INGRESE EL CI DEL CLIENTE O LA PLACA DEL VEHICULO");
         rootPanel.add(label8, new GridConstraints(10, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         editaButton = new JButton();
         editaButton.setText("ACTUALIZAR ");

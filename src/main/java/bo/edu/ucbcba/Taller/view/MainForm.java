@@ -81,7 +81,7 @@ public class MainForm extends JFrame {
     }
 
     private void launcHistory() {
-        RegisterVenta form = new RegisterVenta(this);
+        RegistrarVentaF form = new RegistrarVentaF(this);
         form.setVisible(true);
     }
 
@@ -96,7 +96,7 @@ public class MainForm extends JFrame {
     }
 
     private void launchRegister() {
-        RegisterRepuesto form = new RegisterRepuesto(this);
+        RegistrarRepuestoF form = new RegistrarRepuestoF(this);
         form.setVisible(true);
     }
 
