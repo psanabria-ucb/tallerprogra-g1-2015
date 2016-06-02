@@ -15,7 +15,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
-public class RegisterStockForm extends JDialog {
+public class RegisterRepuesto extends JDialog {
     private JPanel rootPanel;
     private JTextField cost;
     private JTextField name;
@@ -35,7 +35,7 @@ public class RegisterStockForm extends JDialog {
     private JButton editButton;
     private JButton mostrarDatosButton;
 
-    public RegisterStockForm(JFrame parent) {
+    public RegisterRepuesto(JFrame parent) {
         super(parent, "Repuestos", true);
         setContentPane(rootPanel);
         pack();

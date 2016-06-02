@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 
-public class InformeVenta extends JDialog {
+public class RegisterVenta extends JDialog {
     private JPanel rootPanel;
     private JTable saleTable;
     private JTextField searchText;
@@ -39,7 +39,7 @@ public class InformeVenta extends JDialog {
     private StockController controllerstock;
     private SaleController controllersale;
 
-    public InformeVenta(JFrame parent) {
+    public RegisterVenta(JFrame parent) {
 
         super(parent, "Ventas", true);
         setContentPane(rootPanel);

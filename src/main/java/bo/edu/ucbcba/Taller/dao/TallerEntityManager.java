@@ -16,7 +16,7 @@ public class TallerEntityManager {
     private EntityManagerFactory entityManagerFactory;
 
     private TallerEntityManager() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("Taller");
+        entityManagerFactory = Persistence.createEntityManagerFactory("Taller");//
     }
 
     private static TallerEntityManager getInstance() {

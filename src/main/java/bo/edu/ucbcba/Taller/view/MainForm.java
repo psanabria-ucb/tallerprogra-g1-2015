@@ -2,7 +2,6 @@ package bo.edu.ucbcba.Taller.view;
 
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
-import com.intellij.uiDesigner.core.Spacer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -82,7 +81,7 @@ public class MainForm extends JFrame {
     }
 
     private void launcHistory() {
-        InformeVenta form = new InformeVenta(this);
+        RegisterVenta form = new RegisterVenta(this);
         form.setVisible(true);
     }
 
@@ -97,7 +96,7 @@ public class MainForm extends JFrame {
     }
 
     private void launchRegister() {
-        RegisterStockForm form = new RegisterStockForm(this);
+        RegisterRepuesto form = new RegisterRepuesto(this);
         form.setVisible(true);
     }
 
