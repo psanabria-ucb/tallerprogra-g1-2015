@@ -1,3 +1,6 @@
+package bo.edu.ucbcba.Taller.model;
+
+import bo.edu.ucbcba.Taller.controller.MaintenanceController;
 import bo.edu.ucbcba.Taller.model.Customer;
 import bo.edu.ucbcba.Taller.model.Maintenance;
 import org.junit.Before;
@@ -39,5 +42,16 @@ public class MantenimientoTest {
         customer.setCosto(1);
         assertEquals(1, customer.getCosto());
     }
-    
+
+    @Test
+    public void testSetDes(){
+        customer.setDescrip("descripcion del mantenimeinto");
+        assertEquals("descripcion del mantenimeinto", customer.getDescrip());
+    }
+
+    @Test
+    public void testSetCI(){
+        customer.setCi(1);
+        assertEquals(1, customer.getCi());
+    }
 }

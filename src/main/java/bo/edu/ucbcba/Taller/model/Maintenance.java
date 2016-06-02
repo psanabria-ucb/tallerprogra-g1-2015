@@ -15,7 +15,9 @@ public class Maintenance
     @Column(length = 50)
     private int ci;
 
-    @Column(length = 6)
+    //@Column(length = 100)
+    //private String placa;
+    @Column(length = 100)
     private String placa;
 
     @Column(length = 100)
@@ -44,6 +46,14 @@ public class Maintenance
         this.ci = ci;
     }
 
+    public String getPlaca(){
+        return  placa;
+    }
+
+    public  void setPlaca(String placa){
+        this.placa = placa;
+    }
+    /*
     public String getPlaca() {
         return placa;
     }
@@ -51,6 +61,7 @@ public class Maintenance
     public void setPlaca(String placa) {
         this.placa = placa;
     }
+    */
 
     public String getMarca() {
         return marca;

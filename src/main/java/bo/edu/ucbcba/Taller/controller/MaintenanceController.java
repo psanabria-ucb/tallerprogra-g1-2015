@@ -50,7 +50,7 @@ public class MaintenanceController {
 
         //valida la placa
         if(pla.length()>7){
-            throw new ValidationException("LA PLACA DEBE SER MAXIMO DE 6 CARACTERES");
+            throw new ValidationException("LA PLACA DEBE SER MAXIMO DE 7 CARACTERES");
         }
         else {
             if (pla.isEmpty() || pla == null) {
