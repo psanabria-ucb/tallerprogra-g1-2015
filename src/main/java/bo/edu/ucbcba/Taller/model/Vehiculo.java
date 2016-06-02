@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Entity
 public class Vehiculo {
     @Id
-    @Column(length = 6)
+    @Column(length = 100)
     private String placa;
 
     @Column(length = 100)

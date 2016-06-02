@@ -197,7 +197,7 @@
         </constraints>
         <properties>
           <font size="16" style="1"/>
-          <text value="INGRESE EL CI DEL CLIENTE"/>
+          <text value="INGRESE EL CI DEL CLIENTE O LA PLACA DEL VEHICULO"/>
         </properties>
       </component>
       <component id="6e99d" class="javax.swing.JButton" binding="editaButton">
