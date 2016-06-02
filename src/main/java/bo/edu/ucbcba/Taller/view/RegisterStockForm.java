@@ -13,7 +13,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.geom.Arc2D;
 import java.util.List;
 
 public class RegisterStockForm extends JDialog {
@@ -22,13 +21,13 @@ public class RegisterStockForm extends JDialog {
     private JTextField name;
     private JTextField code;
     private JButton cancelButton;
-    private JButton saveButton;
+    private JButton searchButton;
     private JTextField quantity;
     private StockController controller;
 
 
     private JTextField searchText;
-    private JButton searchButton;
+    private JButton saveButton;
     private JTable stockTable;
     private JButton deletebutton;
     private JRadioButton nombreRadioButton;
@@ -41,7 +40,7 @@ public class RegisterStockForm extends JDialog {
         setContentPane(rootPanel);
         pack();
         setResizable(false);
-        setSize(900, 400);
+        setSize(600, 400);
         //  populateTable();
         mostrarDatosButton.addActionListener(new ActionListener() {
             @Override
@@ -49,11 +48,9 @@ public class RegisterStockForm extends JDialog {
                 mostrar();
             }
         });
-        saveButton.addActionListener(new ActionListener() {
+        searchButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                saveUser();
-            }
+            public void actionPerformed(ActionEvent e) {populateTable();}
         });
         cancelButton.addActionListener(new ActionListener() {
             @Override
@@ -63,11 +60,9 @@ public class RegisterStockForm extends JDialog {
         });
         controller = new StockController();
 
-        searchButton.addActionListener(new ActionListener() {
+        saveButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {
-                populateTable();
-            }
+            public void actionPerformed(ActionEvent e) {saveUser();}
         });
         deletebutton.addActionListener(new ActionListener() {
             @Override
@@ -257,18 +252,18 @@ public class RegisterStockForm extends JDialog {
         rootPanel.add(label5, new GridConstraints(0, 3, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(56, 58), null, 0, false));
         searchText = new JTextField();
         rootPanel.add(searchText, new GridConstraints(0, 7, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_FIXED, null, new Dimension(150, -1), null, 0, false));
-        searchButton = new JButton();
-        searchButton.setText("Buscar");
-        rootPanel.add(searchButton, new GridConstraints(0, 8, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        saveButton = new JButton();
+        saveButton.setText("Buscar");
+        rootPanel.add(saveButton, new GridConstraints(0, 8, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         editButton = new JButton();
         editButton.setText("Editar");
         rootPanel.add(editButton, new GridConstraints(7, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         deletebutton = new JButton();
         deletebutton.setText("Eliminar");
         rootPanel.add(deletebutton, new GridConstraints(7, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        saveButton = new JButton();
-        saveButton.setText("Guardar");
-        rootPanel.add(saveButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        searchButton = new JButton();
+        searchButton.setText("Guardar");
+        rootPanel.add(searchButton, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         final JLabel label6 = new JLabel();
         label6.setText("Registrar Repuesto");
         rootPanel.add(label6, new GridConstraints(0, 1, 1, 2, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));

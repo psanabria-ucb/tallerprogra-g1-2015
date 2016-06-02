@@ -87,12 +87,6 @@ public class InformeVenta extends JDialog {
                 cancel();
             }
         });
-        editButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
         saleTable.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -106,7 +100,6 @@ public class InformeVenta extends JDialog {
                 day.setText(fecha);
             }
         });
-
     }
 
     private void actualizar() {
@@ -114,6 +107,7 @@ public class InformeVenta extends JDialog {
         if (saleTable.getSelectedRowCount() > 0) {
             int id = (Integer) tm.getValueAt(saleTable.getSelectedRow(), 0);
             // Integer cod = (Integer) stockTable.getValueAt(stockTable.getSelectedRow(), 0);
+
             controllersale.delete(id);
             Boolean entro = true;
             try {

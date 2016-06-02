@@ -1,5 +1,5 @@
-import bo.edu.ucbcba.Taller.model.Customer;
-import bo.edu.ucbcba.Taller.model.Maintenance;
+package bo.edu.ucbcba.Taller.model;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

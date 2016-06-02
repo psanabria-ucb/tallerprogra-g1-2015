@@ -9,8 +9,6 @@ import javax.persistence.TypedQuery;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -19,7 +17,7 @@ public class SaleController {
 
      public void create( Stock s, String cant, String date){
 
-         int p,r;
+         float p,r;
          int max=200;
          int min=30;
         Sale sale = new Sale();
@@ -32,7 +30,7 @@ public class SaleController {
                 throw new ValidationException("En el campo cantidad solamente se permite una longitud maxima de 7");
             else
                 sale.setcant(Integer.parseInt(cant));
-                p = rd.nextInt(max-min+1)+min;//getStockPrice(s);
+                p = getStockPrice(s);//rd.nextInt(max-min+1)+min;//////getStockPrice(s);
                 r = p * Integer.parseInt(cant);
                 sale.setPrice(p);
                 sale.settotal(r);
@@ -61,11 +59,12 @@ public class SaleController {
          entityManager.close();
     }
 
-    public static int getStockPrice(Stock s) {
+    public static float getStockPrice(Stock s) {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
-        TypedQuery query = entityManager.createQuery("select cost from Stock WHERE s=name ORDER BY s", Stock.class);
-        //query.setParameter("d", "%" + s.toLowerCase() + "%");
-        int response = query.getFirstResult();
+        TypedQuery query = entityManager.createQuery("select x from Stock x WHERE x.name='"+s+"'", Stock.class);
+        List<Stock> res = query.getResultList();
+        float response=res.get(0).getCost();
+        System.out.println(response);
         entityManager.close();
         return response;
     }
@@ -100,7 +99,7 @@ public class SaleController {
             entityManager.getTransaction().begin();
             entityManager.remove(entityManager.find(Sale.class, id));
             entityManager.getTransaction().commit();
-            StockController.delete(id);
+           // StockController.delete(id);
         }
         else
         {

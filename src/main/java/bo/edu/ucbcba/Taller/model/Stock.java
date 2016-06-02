@@ -22,7 +22,6 @@ public class Stock {
         cost = 0;
         code = "";
         quantity = 0;
-        //sales = new LinkedList<>();
         sales = new LinkedList<>();
     }
 

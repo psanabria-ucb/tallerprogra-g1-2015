@@ -32,19 +32,19 @@ public class Sale {
     public Stock getstocks(){return stocks;}
     public void setstocks(Stock stocks){this.stocks=stocks;}
 
-    private int total;
+    private float total;
 
-    public int gettotal(){return total;}
-    public void settotal(int total){this.total=total;}
+    public float gettotal(){return total;}
+    public void settotal(float total){this.total=total;}
 
     private int cant;
 
     public int getcant(){return cant;}
     public void setcant(int cant){this.cant=cant;}
 
-    private int price;
+    private float price;
 
-    public int getPrice(){return price;}
-    public void setPrice(int price){this.price=price;}
+    public float getPrice(){return price;}
+    public void setPrice(float price){this.price=price;}
 }
 
