@@ -7,9 +7,6 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Rebeca on 02/06/2016.
- */
 public class VehiculoTest {
     private Vehiculo vehiculo;
     @Rule

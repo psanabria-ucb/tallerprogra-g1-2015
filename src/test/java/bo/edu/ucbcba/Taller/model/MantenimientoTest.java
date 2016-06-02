@@ -1,11 +1,6 @@
 package bo.edu.ucbcba.Taller.model;
 
-<<<<<<< HEAD
-=======
-import bo.edu.ucbcba.Taller.controller.MaintenanceController;
-import bo.edu.ucbcba.Taller.model.Customer;
-import bo.edu.ucbcba.Taller.model.Maintenance;
->>>>>>> 6da791bd7bdd4630b726aa4eca519037e91cc68c
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;

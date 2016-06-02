@@ -7,9 +7,7 @@ import org.junit.rules.ExpectedException;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Rebeca on 01/06/2016.
- */
+
 public class FacturaTest {
     private Factura factura;
     @Rule
