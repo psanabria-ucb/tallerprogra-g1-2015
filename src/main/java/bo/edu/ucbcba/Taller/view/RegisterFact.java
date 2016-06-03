@@ -33,7 +33,6 @@ public class RegisterFact extends JDialog {
     private JButton cancelButton;
     private JButton deleteButton;
     private JButton actualizarButton;
-    private JButton registraarClienteeButton;
 
     private FacturaController maintenanceController;
 
@@ -91,13 +90,13 @@ public class RegisterFact extends JDialog {
             }
         });
 
-/*        registraarClienteeButton.addActionListener(new ActionListener() {
+        /*registraarClienteeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 populateRegistrarCliente();
             }
         });
-        */
+*/
 
         tablemante.addMouseListener(new MouseAdapter() {
 
@@ -215,14 +214,13 @@ public class RegisterFact extends JDialog {
         populateTableMan();
     }
 
-    /*  private void populateRegistrarCliente()
-      {
-          RegisterCustomer f;
-          f = new RegisterCustomer(this);
-          f.setVisible(true);
+    /* private void populateRegistrarCliente()
+     {
+         RegisterCustomer f = new RegisterCustomer(this);
+         f.setVisible(true);
 
 
-      }*/
+     }*/
     private void populateSearchCITableMan() {
         List<Factura> maintenances = maintenanceController.show();
         try {
@@ -334,8 +332,5 @@ public class RegisterFact extends JDialog {
         deleteButton = new JButton();
         deleteButton.setText("ELIMINAR");
         rootPanel.add(deleteButton, new GridConstraints(11, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
-        registraarClienteeButton = new JButton();
-        registraarClienteeButton.setText("Registraar Clientee");
-        rootPanel.add(registraarClienteeButton, new GridConstraints(12, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 }

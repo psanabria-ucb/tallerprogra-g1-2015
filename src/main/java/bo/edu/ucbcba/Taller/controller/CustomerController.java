@@ -61,7 +61,7 @@ public class CustomerController {
         //NOMBRE
         if (firstsName.matches("[a-zA-Z]+"))
         {
-            if(firstsName.length()>10){
+            if(firstsName.length()>20){
                 throw new ValidationException ("EL NOMBRE DEL CLIENTE NO PUEDE TENER MAS DE 10 CARACTERES");
             }
             else {
@@ -76,7 +76,7 @@ public class CustomerController {
 
         if (lastNameF.matches("[a-zA-Z]+"))
         {
-            if(lastNameF.length()>10){
+            if(lastNameF.length()>20){
                 throw new ValidationException ("EL APELLIDO PATERNO DEL CLIENTE NO PUEDE TENER MAS DE 10 CARACTERES");
             }
             else {
@@ -90,7 +90,7 @@ public class CustomerController {
 
         if (lastNameM.matches("[a-zA-Z]+"))
         {
-            if(lastNameM.length()>10){
+            if(lastNameM.length()>20){
                 throw new ValidationException ("EL APELLIDO MATERNO DEL CLIENTE NO PUEDE TENER MAS DE 10 CARACTERES");
             }
             else {
@@ -104,7 +104,7 @@ public class CustomerController {
 
         if (numberPhono.matches("[0-9]+"))
         {
-            if(numberPhono.length()>10){
+            if(numberPhono.length()>15){
                 throw new ValidationException ("TELEFONO DEL CLIENTE NO PUEDE TENER MAS DE 15 CIFRA");
             }
             else {
@@ -118,8 +118,8 @@ public class CustomerController {
 
         if (address.matches("[a-zA-Z]+"))
         {
-            if(address.length()>20){
-                throw new ValidationException ("DIRECCION DEL CLIENTE NO PUEDE TENER MAS DE 20 CARACTERES");
+            if(address.length()>70){
+                throw new ValidationException ("DIRECCION DEL CLIENTE NO PUEDE TENER MAS DE 70 CARACTERES");
             }
             else {
                 maintenance.setAddress(address);
@@ -168,6 +168,25 @@ public class CustomerController {
 
 
     }
+
+    public void delete2(int id)
+    {
+       // if(id!=0) {
+
+            EntityManager entityManager = TallerEntityManager.createEntityManager();
+            entityManager.getTransaction().begin();
+            entityManager.remove(entityManager.find(Customer.class, id));
+            entityManager.getTransaction().commit();
+            entityManager.close();
+      /*  }
+        else
+        {
+            throw new ValidationException("Seleccione un campo ");
+        }
+*/
+
+    }
+
 
 
     public List<Customer> searhCI(String q){
