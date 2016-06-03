@@ -47,13 +47,13 @@ public class RegistrarRepuestoF extends JDialog {
         mostrardatosButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                mostrar();
+                populateTable();
             }
         });
         searchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                populateTable();
+                populateTablesearch();
             }
         });
         cancelButton.addActionListener(new ActionListener() {
@@ -173,17 +173,70 @@ public class RegistrarRepuestoF extends JDialog {
         dispose();
     }
 
-    private void populateTable() {
+    private void populateTablesearch() {
         List<Stock> stock = controller.show();
 
         if (nombreRadioButton.isSelected())
-            stock = controller.searchStockbyname(searchText.getText());
-        if (codeRadioButton.isSelected())
-            try {
-                stock = controller.searchStockbycode(searchText.getText());
-            } catch (ValidationException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de Formato", JOptionPane.ERROR_MESSAGE);
+        {
+            if (searchText.getText().isEmpty())
+            {
+                JOptionPane.showMessageDialog(null, "Porfavor ingrese nombre para buscar", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
             }
+            else
+            {
+                stock = controller.searchStockbyname(searchText.getText());
+                DefaultTableModel model = new DefaultTableModel();
+                model.addColumn("ID");
+                model.addColumn("Nombre");
+                model.addColumn("Código");
+                model.addColumn("Cantidad");
+                model.addColumn("Costo");
+                stockTable.setModel(model);
+
+                for (Stock m : stock) {
+                    Object[] row = new Object[5];
+
+                    row[0] = m.getId();
+                    row[1] = m.getName();
+                    row[2] = m.getCode();
+                    row[3] = m.getQuantity();
+                    row[4] = m.getCost();
+                    model.addRow(row);
+                }
+            }
+        }
+        else {
+            if (codeRadioButton.isSelected()) {
+                if (searchText.getText().isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "Porfavor ingrese código para buscar", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    stock = controller.searchStockbycode(searchText.getText());
+                    DefaultTableModel model = new DefaultTableModel();
+                    model.addColumn("ID");
+                    model.addColumn("Nombre");
+                    model.addColumn("Código");
+                    model.addColumn("Cantidad");
+                    model.addColumn("Costo");
+                    stockTable.setModel(model);
+
+                    for (Stock m : stock) {
+                        Object[] row = new Object[5];
+
+                        row[0] = m.getId();
+                        row[1] = m.getName();
+                        row[2] = m.getCode();
+                        row[3] = m.getQuantity();
+                        row[4] = m.getCost();
+                        model.addRow(row);
+                    }
+                }
+            }
+        }
+    }
+
+    private void populateTable() {
+        List<Stock> stock = controller.show();
+
 
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("ID");
@@ -238,6 +291,7 @@ public class RegistrarRepuestoF extends JDialog {
         label1.setText("Buscar por");
         rootPanel.add(label1, new GridConstraints(6, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         nombreRadioButton = new JRadioButton();
+        nombreRadioButton.setSelected(true);
         nombreRadioButton.setText("Nombre");
         rootPanel.add(nombreRadioButton, new GridConstraints(6, 2, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         codeRadioButton = new JRadioButton();
@@ -274,10 +328,14 @@ public class RegistrarRepuestoF extends JDialog {
         rootPanel.add(deleteButton, new GridConstraints(5, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         cancelButton = new JButton();
         cancelButton.setText("Salir");
-        rootPanel.add(cancelButton, new GridConstraints(5, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        rootPanel.add(cancelButton, new GridConstraints(5, 5, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         mostrardatosButton = new JButton();
         mostrardatosButton.setText("Mostrar Datos");
         rootPanel.add(mostrardatosButton, new GridConstraints(8, 4, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        ButtonGroup buttonGroup;
+        buttonGroup = new ButtonGroup();
+        buttonGroup.add(nombreRadioButton);
+        buttonGroup.add(codeRadioButton);
     }
 
     /**

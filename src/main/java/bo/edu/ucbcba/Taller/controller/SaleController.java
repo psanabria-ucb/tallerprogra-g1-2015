@@ -17,22 +17,25 @@ public class SaleController {
      public void create( Stock s, String cant, String date){
 
          float p,r;
+         int c=getStockCantidad(s);
         Sale sale = new Sale();
-        if (cant.isEmpty())
+        if (cant.isEmpty() || date.isEmpty())
             throw new ValidationException("Por favor verífique los campos vacios");
 
-        if (cant.matches("[0-9]{1,100}")) {
-            if (cant.length() > 7)
-                throw new ValidationException("En el campo cantidad solamente se permite una longitud maxima de 7");
+        if (cant.matches("[0-9]{1,100}"))
+        {
+            if (Integer.parseInt(cant) > c)
+                    throw new ValidationException("En el campo cantidad no se puede ingresar un numero mayor al stock del repuesto");
             else
-                sale.setcant(Integer.parseInt(cant));
-                p = getStockPrice(s);
-                r = p * Integer.parseInt(cant);
-                sale.setPrice(p);
-                sale.settotal(r);
+                    sale.setcant(Integer.parseInt(cant));
+                    p = getStockPrice(s);
+                    r = p * Integer.parseInt(cant);
+                    sale.setPrice(p);
+                    sale.settotal(r);
         }
-        else{
-             throw new ValidationException("En el campo cantidad solamente se permite numeros enteros");
+        else
+        {
+            throw new ValidationException("En el campo cantidad solamente se permite numeros enteros");
         }
 
         sale.setstocks(s);
@@ -60,6 +63,16 @@ public class SaleController {
         TypedQuery query = entityManager.createQuery("select x from Stock x WHERE x.name='"+s+"'", Stock.class);
         List<Stock> res = query.getResultList();
         float response=res.get(0).getCost();
+        System.out.println(response);
+        entityManager.close();
+        return response;
+    }
+
+    public static int getStockCantidad(Stock s) {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        TypedQuery query = entityManager.createQuery("select x from Stock x WHERE x.name='"+s+"'", Stock.class);
+        List<Stock> res = query.getResultList();
+        int response=res.get(0).getQuantity();
         System.out.println(response);
         entityManager.close();
         return response;
