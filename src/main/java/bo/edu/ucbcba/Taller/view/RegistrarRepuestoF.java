@@ -145,6 +145,7 @@ public class RegistrarRepuestoF extends JDialog {
         DefaultTableModel tm = (DefaultTableModel) stockTable.getModel();
         if (stockTable.getSelectedRowCount() > 0) {
             int id = (Integer) tm.getValueAt(stockTable.getSelectedRow(), 0);
+            System.out.println("Este id se envia" + id);
             controller.delete(id);
             populateTable();
         } else {
@@ -176,14 +177,10 @@ public class RegistrarRepuestoF extends JDialog {
     private void populateTablesearch() {
         List<Stock> stock = controller.show();
 
-        if (nombreRadioButton.isSelected())
-        {
-            if (searchText.getText().isEmpty())
-            {
+        if (nombreRadioButton.isSelected()) {
+            if (searchText.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Porfavor ingrese nombre para buscar", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            {
+            } else {
                 stock = controller.searchStockbyname(searchText.getText());
                 DefaultTableModel model = new DefaultTableModel();
                 model.addColumn("ID");
@@ -204,8 +201,7 @@ public class RegistrarRepuestoF extends JDialog {
                     model.addRow(row);
                 }
             }
-        }
-        else {
+        } else {
             if (codeRadioButton.isSelected()) {
                 if (searchText.getText().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Porfavor ingrese código para buscar", "Mensaje de Error", JOptionPane.ERROR_MESSAGE);

@@ -6,6 +6,7 @@ import bo.edu.ucbcba.Taller.model.Sale;
 import bo.edu.ucbcba.Taller.model.Stock;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,6 +57,10 @@ public class SaleController {
          entityManager.persist(sale);
          entityManager.getTransaction().commit();
          entityManager.close();
+
+         int resultado= c - Integer.parseInt(cant);
+         System.out.println(resultado);
+         setStockPrice(s,resultado);
     }
 
     public static float getStockPrice(Stock s) {
@@ -68,12 +73,33 @@ public class SaleController {
         return response;
     }
 
+    public static void setStockPrice(Stock s,int resultado) {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        TypedQuery query = entityManager.createQuery("select x from Stock x WHERE x.name='"+s+"'", Stock.class);
+        List<Stock> res = query.getResultList();
+        int id=res.get(0).getId();
+        entityManager.close();
+        updatequantity(id,resultado);
+    }
+
+    public static void updatequantity(int id,int quantity)
+    {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        System.out.println(quantity+"---"+id);
+        entityManager.getTransaction().begin();
+        TypedQuery query = entityManager.createQuery("update Stock set quantity ='"+quantity+"' WHERE id ="+id, Stock.class);
+        query.executeUpdate();
+        entityManager.getTransaction().commit();
+        System.out.println("quaN"+quantity);
+        entityManager.close();
+    }
+
     public static int getStockCantidad(Stock s) {
         EntityManager entityManager = TallerEntityManager.createEntityManager();
         TypedQuery query = entityManager.createQuery("select x from Stock x WHERE x.name='"+s+"'", Stock.class);
         List<Stock> res = query.getResultList();
         int response=res.get(0).getQuantity();
-        System.out.println(response);
+        System.out.println("qua"+response);
         entityManager.close();
         return response;
     }
@@ -102,19 +128,20 @@ public class SaleController {
 
     public void delete(int id)
     {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
         if (id!=0)
         {
-            EntityManager entityManager = TallerEntityManager.createEntityManager();
-            entityManager.getTransaction().begin();
-            entityManager.remove(entityManager.find(Sale.class, id));
-            entityManager.getTransaction().commit();
-           // StockController.delete(id);
+                entityManager.getTransaction().begin();
+                entityManager.remove(entityManager.find(Sale.class, id));
+                entityManager.getTransaction().commit();
         }
         else
         {
             throw new ValidationException("Seleccione la venta que desea eliminar");
         }
     }
+
+
 
     public Stock getSale(int id)
     {

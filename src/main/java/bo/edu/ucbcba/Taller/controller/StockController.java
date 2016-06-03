@@ -1,11 +1,13 @@
 package bo.edu.ucbcba.Taller.controller;
 
+import bo.edu.ucbcba.Taller.model.Sale;
 import bo.edu.ucbcba.Taller.model.Stock;
 import bo.edu.ucbcba.Taller.dao.TallerEntityManager;
 import bo.edu.ucbcba.Taller.exceptions.ValidationException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
+import javax.swing.*;
 import java.util.List;
 
 public class StockController {
@@ -107,19 +109,44 @@ public class StockController {
 
     public static void delete(int id)
     {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
         if (id!=0)
         {
-            EntityManager entityManager = TallerEntityManager.createEntityManager();
-            entityManager.getTransaction().begin();
-            entityManager.remove(entityManager.find(Stock.class, id));
-            entityManager.getTransaction().commit();
-            entityManager.close();
+                entityManager.getTransaction().begin();
+                entityManager.remove(entityManager.find(Stock.class, id));
+                entityManager.getTransaction().commit();
         }
         else
         {
-            throw new ValidationException("Seleccione el producto que desea eliminar");
+            throw new ValidationException("Seleccione el repuesto que desea eliminar");
         }
     }
+
+    public static String getStockName(int id) {
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        TypedQuery query = entityManager.createQuery("select x from Stock x WHERE x.id='"+id+"'", Stock.class);
+        List<Stock> res = query.getResultList();
+        String response=res.get(0).getName();
+        System.out.println("response");
+        entityManager.close();
+        return response;
+    }
+
+  /*  public static int getSaleId(String n) {
+        int response=0;
+        EntityManager entityManager = TallerEntityManager.createEntityManager();
+        TypedQuery query = entityManager.createQuery("select c from Sale c", Sale.class);
+        List<Sale> res = query.getResultList();
+        for (Sale m: res){
+            if (m.getstocks().getName()==n){
+                if(res.size()>0)
+                    response = res.get(0).getId();
+                    return response;
+            }
+        }
+        entityManager.close();
+        return 1;
+    }*/
 
     public Stock getStock(int id)
     {
