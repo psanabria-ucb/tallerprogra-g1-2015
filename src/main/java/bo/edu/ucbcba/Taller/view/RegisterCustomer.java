@@ -96,7 +96,26 @@ public class RegisterCustomer extends JDialog {
         actualizarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                populateActualizar();
+                //UpdateTabla();
+                int resp = JOptionPane.showConfirmDialog(null, "DESEA EDITAR");
+                if (JOptionPane.OK_OPTION == resp) {
+                    //System.out.println("Selecciona opción Afirmativa");
+                    //clearMant();
+                    //deleteMan();
+                    //populateTableMan();
+                    populateActualizar();
+                    clearMant();
+                } else {
+                    //System.out.println("No selecciona una opción afirmativa");
+                    // deleteButton.setEnabled(false);
+                    addButton.setEnabled(true);
+                    // actualizarButton.setEnabled(false);
+                    clearMant();
+                    populateTableMan();
+                }
+                //deleteButton.setEnabled(false);
+                addButton.setEnabled(true);
+                //actualizarButton.setEnabled(false);
             }
         });
 
@@ -186,28 +205,20 @@ public class RegisterCustomer extends JDialog {
 
 
         DefaultTableModel tm = (DefaultTableModel) tablemante.getModel();
-        //   int id = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
-
-        if (tablemante.getSelectedRow() > 0)
-
-        {
-            int id = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
-            maintenanceController.delete(id);
+        if (tablemante.getSelectedRowCount() > 0) {
+            int ci = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
+            maintenanceController.delete(ci);
+            //  comboCustomers.removeAllItems();
+            // loadComboCustomers();
             clearMant();
             populateTableMan();
-
-
         } else {
             try {
                 maintenanceController.delete(0);
-
             } catch (ValidationException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de seleccion", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de selección", JOptionPane.ERROR_MESSAGE);
             }
         }
-        // maintenanceController.delete(id);
-        //   clearMant();
-        //   populateTableMan();
 
 
     }
@@ -293,43 +304,35 @@ public class RegisterCustomer extends JDialog {
 
     private void populateActualizar() {
         DefaultTableModel tm = (DefaultTableModel) tablemante.getModel();
-        if (tablemante.getSelectedRow() > 0) {
-            int cod = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
-            // Integer cod = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 0);
-            maintenanceController.delete(cod);
-            Boolean entro = true;
+        // if (tablemante.getSelectedRow() > 0) {
+        int cod = (Integer) tm.getValueAt(tablemante.getSelectedRow(), 0);
+        // Integer cod = (Integer) tablemante.getValueAt(tablemante.getSelectedRow(), 0);
+        maintenanceController.delete(cod);
+        Boolean entro = true;
 
-            try {
+        try {
 
-                maintenanceController.create(ciField.getText(),
-                        nombreField.getText(),       // REGISTRA EL GENERO
-                        apellidoPField.getText(),
-                        apellidoMField.getText(),
-                        fonoField.getText(),
-                        descripArea.getText());
+            maintenanceController.create(ciField.getText(),
+                    nombreField.getText(),       // REGISTRA EL GENERO
+                    apellidoPField.getText(),
+                    apellidoMField.getText(),
+                    fonoField.getText(),
+                    descripArea.getText());
 
-            } catch (ValidationException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
-                entro = false;
+        } catch (ValidationException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "error de formato", JOptionPane.ERROR_MESSAGE);
+            entro = false;
 
-
-            }
-            if (entro) {
-                JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
-
-                clearMant();
-            }
-
-            populateTableMan();
-        } else {
-            try {
-                maintenanceController.delete(0);
-
-            } catch (ValidationException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage(), "Error de seleccion paara editar", JOptionPane.ERROR_MESSAGE);
-            }
 
         }
+        if (entro) {
+            JOptionPane.showMessageDialog(this, "Elemento actualizado correctamente", "Realizado", JOptionPane.INFORMATION_MESSAGE);
+
+            // clearMant();
+        }
+
+        populateTableMan();
+
     }
 
 
@@ -390,8 +393,8 @@ public class RegisterCustomer extends JDialog {
         rootPanel.add(label7, new GridConstraints(6, 0, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_FIXED, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         descripArea = new JTextArea();
         descripArea.setColumns(10);
-        descripArea.setLineWrap(false);
-        descripArea.setRows(5);
+        descripArea.setLineWrap(true);
+        descripArea.setRows(0);
         rootPanel.add(descripArea, new GridConstraints(6, 1, 1, 3, GridConstraints.ANCHOR_NORTH, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
         tablemante = new JTable();
         rootPanel.add(tablemante, new GridConstraints(9, 1, 4, 5, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_BOTH, GridConstraints.SIZEPOLICY_WANT_GROW, GridConstraints.SIZEPOLICY_WANT_GROW, null, new Dimension(150, 50), null, 0, false));
@@ -429,7 +432,7 @@ public class RegisterCustomer extends JDialog {
         addButton.setText("Agregar");
         rootPanel.add(addButton, new GridConstraints(14, 2, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         cancelButton = new JButton();
-        cancelButton.setText("Cancelar");
+        cancelButton.setText("Salir");
         rootPanel.add(cancelButton, new GridConstraints(14, 3, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
         ButtonGroup buttonGroup;
         buttonGroup = new ButtonGroup();
