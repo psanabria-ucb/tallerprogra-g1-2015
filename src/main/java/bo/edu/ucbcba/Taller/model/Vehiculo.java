@@ -40,7 +40,12 @@ public class Vehiculo {
     }
 
     public void setPlaca(String placa) {
-
+        if (placa == null)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Null title");
+        if (placa.isEmpty())
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title can't be empty");
+        if (placa.length() > 255)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title is too long");
         this.placa = placa;
     }
 
@@ -49,6 +54,12 @@ public class Vehiculo {
     }
 
     public void setColor(String color) {
+        if (color == null)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Null title");
+        if (color.isEmpty())
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title can't be empty");
+        if (color.length() > 255)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title is too long");
         this.color = color;
     }
 
@@ -57,6 +68,12 @@ public class Vehiculo {
     }
 
     public void setMarca(String marca) {
+        if (marca == null)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Null title");
+        if (marca.isEmpty())
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title can't be empty");
+        if (marca.length() > 255)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title is too long");
         this.marca = marca;
     }
 
@@ -73,6 +90,12 @@ public class Vehiculo {
     }
 
     public void setOrigen(String origen) {
+        if (origen == null)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Null title");
+        if (origen.isEmpty())
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title can't be empty");
+        if (origen.length() > 255)
+            throw new bo.edu.ucbcba.Taller.exceptions.ValidationException("Title is too long");
         this.origen = origen;
     }
 }

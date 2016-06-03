@@ -30,7 +30,9 @@ public class Sale {
     private Stock stocks;
 
     public Stock getstocks(){return stocks;}
-    public void setstocks(Stock stocks){this.stocks=stocks;}
+    public void setstocks(Stock stocks){
+        this.stocks=stocks;
+    }
 
     private float total;
 
