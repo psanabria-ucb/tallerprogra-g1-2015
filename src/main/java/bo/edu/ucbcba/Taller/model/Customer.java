@@ -1,5 +1,7 @@
 package bo.edu.ucbcba.Taller.model;
 
+import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+
 import javax.persistence.*;
 
 /**
@@ -51,6 +53,12 @@ import javax.persistence.*;
         }
 
         public void setFirtsName(String firtsName) {
+            if (firtsName == null)
+                throw new ValidationException("Null title");
+            if (firtsName.isEmpty())
+                throw new ValidationException("Title can't be empty");
+            if (firtsName.length() > 255)
+                throw new ValidationException("Title is too long");
             this.firtsName = firtsName;
         }
 
@@ -59,6 +67,12 @@ import javax.persistence.*;
         }
 
         public void setLastNameF(String lastNameF) {
+            if (lastNameF == null)
+                throw new ValidationException("Null title");
+            if (lastNameF.isEmpty())
+                throw new ValidationException("Title can't be empty");
+            if (lastNameF.length() > 255)
+                throw new ValidationException("Title is too long");
             this.lastNameF = lastNameF;
         }
 
@@ -67,6 +81,12 @@ import javax.persistence.*;
         }
 
         public void setLastNameM(String lastNameM) {
+            if (lastNameM == null)
+                throw new ValidationException("Null title");
+            if (lastNameM.isEmpty())
+                throw new ValidationException("Title can't be empty");
+            if (lastNameM.length() > 255)
+                throw new ValidationException("Title is too long");
             this.lastNameM = lastNameM;
         }
 
@@ -75,6 +95,12 @@ import javax.persistence.*;
         }
 
         public void setAddress(String address) {
+            if (address == null)
+                throw new ValidationException("Null title");
+            if (address.isEmpty())
+                throw new ValidationException("Title can't be empty");
+            if (address.length() > 255)
+                throw new ValidationException("Title is too long");
             this.address = address;
         }
 

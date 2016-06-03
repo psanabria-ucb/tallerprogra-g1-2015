@@ -11,17 +11,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 public class SaleController {
 
      public void create( Stock s, String cant, String date){
 
          float p,r;
-         int max=200;
-         int min=30;
         Sale sale = new Sale();
-         Random rd = new Random();
         if (cant.isEmpty())
             throw new ValidationException("Por favor verífique los campos vacios");
 
@@ -30,7 +26,7 @@ public class SaleController {
                 throw new ValidationException("En el campo cantidad solamente se permite una longitud maxima de 7");
             else
                 sale.setcant(Integer.parseInt(cant));
-                p = getStockPrice(s);//rd.nextInt(max-min+1)+min;//////getStockPrice(s);
+                p = getStockPrice(s);
                 r = p * Integer.parseInt(cant);
                 sale.setPrice(p);
                 sale.settotal(r);

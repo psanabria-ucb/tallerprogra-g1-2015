@@ -3,6 +3,8 @@ package bo.edu.ucbcba.Taller.model;
 /**
  * Created by Rebeca on 18/05/2016.
  */
+import bo.edu.ucbcba.Taller.exceptions.ValidationException;
+
 import javax.persistence.*;
 import java.util.Calendar;
 
@@ -49,6 +51,12 @@ public class Factura {
     }
 
     public void setNombre(String nombre) {
+        if (nombre == null)
+            throw new ValidationException("Null title");
+        if (nombre.isEmpty())
+            throw new ValidationException("Title can't be empty");
+        if (nombre.length() > 255)
+            throw new ValidationException("Title is too long");
         this.nombre = nombre;
     }
 
@@ -78,11 +86,13 @@ public class Factura {
     }
 
     public void setDescrip(String descrip) {
+        if (descrip == null)
+            throw new ValidationException("Null title");
+        if (descrip.isEmpty())
+            throw new ValidationException("Title can't be empty");
+        if (descrip.length() > 255)
+            throw new ValidationException("Title is too long");
         this.descrip = descrip;
     }
-
-
-
-
 
 }

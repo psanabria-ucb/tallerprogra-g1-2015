@@ -68,13 +68,20 @@ public class Stock {
         return code;
     }
     public void setCode(String code) {
+        if (code == null)
+            throw new ValidationException("Null title");
+        if (code.isEmpty())
+            throw new ValidationException("Title can't be empty");
+        if (code.length() > 255)
+            throw new ValidationException("Title is too long");
         this.code = code;
     }
 
     public int getQuantity(){
         return quantity;
     }
-    public void setQuantity(int quantity){this.quantity = quantity;}
+    public void setQuantity(int quantity){this.quantity = quantity;
+    }
 
     public List<Sale> getsales() {
         return sales;
