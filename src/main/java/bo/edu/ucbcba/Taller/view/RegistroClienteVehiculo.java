@@ -101,7 +101,7 @@ public class RegistroClienteVehiculo extends JDialog {
     private void agregar() {
         try {
             customerController.create(TextCI.getText(), TextNombre.getText(), TextPaterno.getText(), TextMaterno.getText(), TextTelefono.getText(), TextDireccion.getText());
-            clearMant();
+            //clearMant();
             clienteVehiculoController.create(textPlaca.getText(), (String) comboBoxColor.getSelectedItem(), (String) comboBoxMarca.getSelectedItem(), textModelo.getText(), (String) comboBoxOrigen.getSelectedItem());
             ShowTable();
             clearMant();
