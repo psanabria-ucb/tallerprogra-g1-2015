@@ -16,6 +16,7 @@ public class CustomerController {
     public void create(String ci,String firstsName,String lastNameF, String lastNameM,String numberPhono, String address)
     {
         Customer maintenance = new Customer();
+
         if (ci.matches("[0-9]+")){
             if(ci.length()>7){
                 throw new ValidationException("EL CI DEL CLIENTE NO PUEDE TENER MAS DE 7 DIGITOS");
@@ -28,6 +29,35 @@ public class CustomerController {
         else
             throw new ValidationException("ci no es un numero");
 
+        /*
+        if(ci.isEmpty()){
+            throw new ValidationException("TIENE QUE INTRODUCIR EL CI DEL CLIENTE");
+        }
+        else {
+            if(ci.matches("[0-9]+")){
+                if(ci.length()>10){
+                    throw new ValidationException ("EL CI DEL CLIENTE NO PUEDE TENER MAS DE 9 DIGITOS");
+                }
+                else {
+                    int a = Integer.parseInt(ci);
+                    EntityManager entityManager = TallerEntityManager.createEntityManager();
+                    TypedQuery<Customer> query = entityManager.createQuery("select c from Customer c WHERE c.ci =  :a", Customer.class);
+                    query.setParameter("a", a);
+                    List<Customer> response = query.getResultList();
+                    entityManager.close();
+                    if(response.isEmpty()){
+                        maintenance.setCi(Integer.parseInt(ci));
+                    }
+                    else{
+                        throw new ValidationException("El CI DEL CLIENTE YA EXISTE");
+                    }
+                }
+            }
+            else {
+                throw new ValidationException("EL CI DEL CLIENTE TIENE QUE SER NUMERO");
+            }
+        }
+        */
         //NOMBRE
         if (firstsName.matches("[a-zA-Z]+"))
         {
@@ -202,7 +232,13 @@ public class CustomerController {
         return response;
     }
 
-
+    public List<Customer> getAllCustomer(){
+        EntityManager em = TallerEntityManager.createEntityManager();
+        TypedQuery<Customer> query = em.createQuery("select d from Customer d order by d.firstName", Customer.class);
+        List<Customer> list = query.getResultList();
+        em.close();
+        return list;
+    }
 
 
 }

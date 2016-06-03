@@ -4,6 +4,7 @@ package bo.edu.ucbcba.Taller.model;
  * Created by Osmar on 31/05/2016.
  */
 import javax.persistence.*;
+import javax.xml.bind.ValidationException;
 
 @Entity
 public class Vehiculo {
@@ -23,11 +24,23 @@ public class Vehiculo {
     @Column(length = 100)
     private String origen;
 
+    @ManyToOne
+    private Customer customer;
+
     public String getPlaca() {
         return placa;
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
     public void setPlaca(String placa) {
+
         this.placa = placa;
     }
 

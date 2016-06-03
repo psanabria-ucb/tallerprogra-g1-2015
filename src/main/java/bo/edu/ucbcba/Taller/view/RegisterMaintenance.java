@@ -67,6 +67,7 @@ public class RegisterMaintenance extends JDialog {
                     addButton.setEnabled(true);
                     editaButton.setEnabled(false);
                     clearMant();
+                    populateTableMan();
                 }
                 deleteButton.setEnabled(false);
                 addButton.setEnabled(true);
@@ -105,6 +106,7 @@ public class RegisterMaintenance extends JDialog {
                     addButton.setEnabled(true);
                     editaButton.setEnabled(false);
                     clearMant();
+                    populateTableMan();
                 }
                 deleteButton.setEnabled(false);
                 addButton.setEnabled(true);
@@ -146,6 +148,7 @@ public class RegisterMaintenance extends JDialog {
 
     private void populateTableMan() {
         List<Maintenance> man = maintenanceController.show();
+
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("NUM");
         model.addColumn("CI");

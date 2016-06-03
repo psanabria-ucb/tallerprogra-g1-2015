@@ -3,6 +3,8 @@ package bo.edu.ucbcba.Taller.model;
 import bo.edu.ucbcba.Taller.exceptions.ValidationException;
 
 import javax.persistence.*;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Rebeca on 01/06/2016.
@@ -31,6 +33,20 @@ import javax.persistence.*;
         private String address;
         private int numberPhone;
 
+        //lista de vehiculos
+
+        @OneToMany
+        private List<Vehiculo> vehiculo;
+
+        public Customer(){
+            id=0;
+            Ci=0;
+            firtsName="";
+            lastNameF="";
+            address="";
+            numberPhone=0;
+            vehiculo = new LinkedList<>();
+        }
 
         public int getId() {
             return id;
