@@ -30,53 +30,16 @@ public class MainForm extends JFrame {
         setSize(600, 400);
 
 
-        btnClienteVehiculo.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ClienteVehiculo();
-            }
-        });
-
-        facturacionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Register();
-            }
-        });
-
-        stockButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                launchRegister();
-            }
-        });
-
-        mantenimientoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                populateTable();
-            }
-        });
 
 
-        ventasButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                launcHistory();
-            }
-        });
+
         salirButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 exit();
             }
         });
-        historialDeVentasButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                ventasregister();
-            }
-        });
+
 
 
         registrarClienteButton.addActionListener(new ActionListener() {
@@ -88,45 +51,18 @@ public class MainForm extends JFrame {
 
     }
 
-    private void launcHistory() {
-        RegistrarVentaF form = new RegistrarVentaF(this);
-        form.setVisible(true);
-    }
 
     private void exit() {
         setVisible(false);
         dispose();
     }
 
-    private void ventasregister() {
-        RegisterSaleForm form = new RegisterSaleForm(this);
-        form.setVisible(true);
-    }
-
-    private void launchRegister() {
-        RegistrarRepuestoF form = new RegistrarRepuestoF(this);
-        form.setVisible(true);
-    }
-
-    private void populateTable() {
-        RegisterMaintenance f = new RegisterMaintenance(this);
-        f.setVisible(true);
-    }
-
-    private void Register() {
-        RegisterFact f = new RegisterFact(this);
-        f.setVisible(true);
-    }
 
     private void clienteregisterr() {
         RegisterCustomer r = new RegisterCustomer(this);
         r.setVisible(true);
     }
 
-    private void ClienteVehiculo() {
-        RegistroClienteVehiculo re = new RegistroClienteVehiculo(this);
-        re.setVisible(true);
-    }
 
 
     {

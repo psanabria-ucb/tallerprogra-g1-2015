@@ -35,8 +35,8 @@ import java.util.List;
 
         //lista de vehiculos
 
-        @OneToMany
-        private List<Vehiculo> vehiculo;
+       // @OneToMany
+       // private List<Vehiculo> vehiculo;
 
         public Customer(){
             id=0;
@@ -45,7 +45,7 @@ import java.util.List;
             lastNameF="";
             address="";
             numberPhone=0;
-            vehiculo = new LinkedList<>();
+           // vehiculo = new LinkedList<>();
         }
 
         public int getId() {

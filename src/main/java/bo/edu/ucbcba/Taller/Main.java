@@ -7,7 +7,7 @@ import javax.swing.*;
 
 
 public class Main {
-    public static void main(String[] args) {
+   public static void main(String[] args) {
         MainForm man = new MainForm();
         man.setVisible(true);
         man.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
